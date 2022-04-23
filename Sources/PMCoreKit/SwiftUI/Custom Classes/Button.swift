@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomButtonStyle: ButtonStyle {
+public struct CustomButtonStyle: ButtonStyle {
     var bgColor = Color.white
     var textColor = Color.black
     func makeBody(configuration: Self.Configuration) -> some View {
@@ -26,7 +26,7 @@ struct CustomButtonStyle: ButtonStyle {
 
 
 
-struct TextButton : View {
+public struct TextButton : View {
     var handler: () -> Void
     var text = ""
     
@@ -48,7 +48,7 @@ struct TextButton : View {
     }
 }
 
-struct PlainTextButton : View {
+public struct PlainTextButton : View {
     var text = ""
     
     var bgColor = Color.black

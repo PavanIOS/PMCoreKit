@@ -7,12 +7,10 @@
 
 
 
-
-
 import SwiftUI
 import Combine
 
-final class KeyboardGaurdian: ObservableObject {
+public class KeyboardGaurdian: ObservableObject {
     public var rects: Array<CGRect>
     public var keyboardRect: CGRect = CGRect()
 
@@ -33,12 +31,12 @@ final class KeyboardGaurdian: ObservableObject {
 
     }
 
-    func addObserver() {
+    public func addObserver() {
 NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardDidHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
 }
 
-func removeObserver() {
+    publicfunc removeObserver() {
  NotificationCenter.default.removeObserver(self)
 }
 
@@ -48,7 +46,7 @@ func removeObserver() {
 
 
 
-    @objc func keyBoardWillShow(notification: Notification) {
+    public @objc func keyBoardWillShow(notification: Notification) {
         if keyboardIsHidden {
             keyboardIsHidden = false
             if let rect = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? CGRect {
@@ -58,12 +56,12 @@ func removeObserver() {
         }
     }
 
-    @objc func keyBoardDidHide(notification: Notification) {
+    public @objc func keyBoardDidHide(notification: Notification) {
         keyboardIsHidden = true
         updateSlide()
     }
 
-    func updateSlide() {
+    public func updateSlide() {
         if keyboardIsHidden {
             slide = 0
         } else {
