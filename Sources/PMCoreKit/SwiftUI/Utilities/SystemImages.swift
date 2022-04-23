@@ -147,14 +147,14 @@ public enum SystemImages : String {
 }
 
 public extension Image {
-    public func system(name:SystemImages) -> Image {
+     func system(name:SystemImages) -> Image {
         return Image(systemName: name.rawValue)
     }
 }
 
 public extension UIImage {
-    public func system(name:SystemImages) -> UIImage {
-        return UIImage(systemName: name.rawValue)
+     func system(name:SystemImages) -> UIImage {
+        return UIImage(systemName: name.rawValue) ?? UIImage()
     }
 }
 

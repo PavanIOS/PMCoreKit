@@ -14,7 +14,7 @@ import AVKit
 public struct NotificationNumLabel : View {
      var number = 0
     var showValue = true
-    var body: some View {
+    public var body: some View {
         ZStack {
             
             if showValue {
@@ -36,7 +36,7 @@ public struct NotificationNumLabel : View {
 
 
 
-extension View {
+public extension View {
     public func addVerifiedBadge(_ isVerified: Bool) -> some View {
         ZStack(alignment: .topTrailing) {
             self
@@ -61,7 +61,7 @@ public struct DescriptionInfoView : View {
     var desc = ""
     
     
-    var body : some View {
+    public var body : some View {
         InfoView
     }
     
@@ -88,14 +88,14 @@ public struct PresentDescriptionInfoView : View {
     var desc = ""
     
     
-    var body : some View {
+    public var body : some View {
         InfoView
     }
     
     var InfoView : some View {
         
         VStack {
-            Text(screenName).font(.title).foregroundColor(Color.themeColor)
+            Text(screenName).font(.title).foregroundColor(Color.green)
             Divider()
             ScrollView{
                 Text(desc)
@@ -139,7 +139,7 @@ public struct ReUsableCapsule : View {
     
     var fillColor = Color(.lightGray)
     
-    var body : some View {
+    public var body : some View {
         
         Capsule()
             .fill(fillColor)
@@ -169,7 +169,7 @@ public struct RatingView : View {
     
     
     
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing:5) {
             if label.isEmpty == false {
                 Text(label)
@@ -201,7 +201,7 @@ public struct RatingView : View {
 
 
 /* ---------------  Keyboard responder ------------------ */
-final class KeyboardResponder: ObservableObject {
+final public class KeyboardResponder: ObservableObject {
     @Published private(set) var currentHeight: CGFloat = 0
     
     private var notificationCenter: NotificationCenter
@@ -228,13 +228,13 @@ final class KeyboardResponder: ObservableObject {
 
 public struct KeyboardManagement: ViewModifier {
     @ObservedObject var keyboard = KeyboardResponder()
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .padding(.bottom,keyboard.currentHeight)
     }
 }
 
-extension View {
+public extension View {
     func keyboardManagement() -> some View {
         self.modifier(KeyboardManagement())
     }
@@ -248,7 +248,7 @@ public struct VideoPlayerView : View {
     
     var videoLink = ""
     var height : CGFloat = 250
-    var body : some View {
+    public var body : some View {
         if let finalUrl = videoLink.toUrl {
             
             VideoPlayer(player: avPlayer)

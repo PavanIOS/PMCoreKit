@@ -18,7 +18,7 @@ import QuickLook
 
 
 
-class BaseViewController: UIViewController {
+public class BaseViewController: UIViewController {
     
 //    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
 //    var sceneDelegate : SceneDelegate? = nil
@@ -27,23 +27,9 @@ class BaseViewController: UIViewController {
     let newLine = "\n"
     
     
-    var hideBackButtonTitle : Bool = true {
-        didSet {
-            if hideBackButtonTitle {
-                self.removeBackButtonTitle()
-            }
-        }
-    }
+   
     
-    var backButtonTitle : String = "" {
-        didSet {
-            if backButtonTitle == "" {
-                self.hideBackButtonTitle = true
-            }else{
-                setBackButtonTitle(text: backButtonTitle)
-            }
-        }
-    }
+  
     
     var largeTitles : Bool = false {
         didSet{
@@ -61,16 +47,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    var firebaseToken : String {
-        if PushNotificationManager.shared.deviceToken != "" {
-            return PushNotificationManager.shared.deviceToken
-        }
-        
-        if let fcmToken = self.defaults.string(forKey: "fcmToken") {
-            return fcmToken
-        }
-        return ""
-    }
+    
     
     
     var previewUrls = [URL]()
@@ -80,13 +57,13 @@ class BaseViewController: UIViewController {
     
     var pullToRefresh = UIRefreshControl() // Pull To Refresh
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         initiate = false
         self.initialSetup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewWillAppear()
         hideKeyboard()
@@ -95,7 +72,7 @@ class BaseViewController: UIViewController {
     
     
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         hideKeyboard()
         viewWillDisappear()
@@ -104,7 +81,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if #available(iOS 13.0, *) {
            // self.sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
@@ -160,32 +137,7 @@ class BaseViewController: UIViewController {
     
     
     //MARK : Private Methods
-    func updateConstraintsImmediately() {
-        self.view.layoutIfNeeded() // To update constraints immediately
-    }
-    
- 
-    
-    public func setBackButtonTitle(text:String,color:UIColor? = nil){
-        let backButton = UIBarButtonItem()
-        backButton.title = text
-        if color != nil {
-            backButton.tintColor = color
-        }
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-    }
-    
-    func removeBackButtonTitle(){
-        self.setBackButtonTitle(text: "")
-    }
-    
-    public func hideKeyboard(){
-        self.view.endEditing(true)
-    }
-    
-    func hideNavigationbar(_ hide:Bool = true){
-        self.navigationController?.navigationBar.isHidden = hide
-    }
+   
     
     func transparentNavigatoionBar(_ transparent:Bool = false,_ titleColor:UIColor = .black){
         self.navigationController?.navigationBar.isTranslucent = true
@@ -236,7 +188,7 @@ class BaseViewController: UIViewController {
 
 
 //MARK: Customized Functions
-extension BaseViewController {
+public extension BaseViewController {
     
     func customizeNavigationbar(){
         self.navigationItem.leftItemsSupplementBackButton = true // To add more back buttons with default back button
@@ -298,7 +250,7 @@ extension BaseViewController {
 }
 
 extension BaseViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return touch.view == gestureRecognizer.view
     }
 }
@@ -330,68 +282,55 @@ extension BaseViewController : QLPreviewControllerDataSource {
         
     }
     
-    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+    public func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
         return previewUrls.count
     }
     
-    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+    public func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
         let currentItem = previewUrls[index]
         return currentItem as QLPreviewItem
     }
 }
 
 
-extension BaseViewController {
+
+
+
+
+
+
+public extension UIViewController {
     
-    func loadMainView(){
-        if #available(iOS 13.0, *) {
-            BaseNavigationManager.loadMainView(self.sceneDelegate?.window)
-        }else {
-            BaseNavigationManager.loadMainView(self.appDelegate?.window)
-        }
-    }
-    
-    func loadLoginView(){
-        if #available(iOS 13.0, *) {
-            BaseNavigationManager.loadLoginView(self.sceneDelegate?.window)
-        }else {
-            BaseNavigationManager.loadLoginView(self.appDelegate?.window)
-        }
-    }
-    
-    func loadExistingUserScreen(){
-        if #available(iOS 13.0, *) {
-            BaseNavigationManager.loadExistingUserScreen(self.sceneDelegate?.window)
-        }else {
-            BaseNavigationManager.loadExistingUserScreen(self.appDelegate?.window)
-        }
-    }
-}
-
-
-
-
-
-extension UIViewController {
-    public var hideBackButtonTitle : Bool = true {
-        didSet {
-            if hideBackButtonTitle {
-                self.removeBackButtonTitle()
-            }
-        }
-    }
-    
-    public func removeBackButtonTitle(){
+    func hideBackButtonTitle(){
         self.setBackButtonTitle(text: "")
     }
+
     
-    public func setBackButtonTitle(text:String,color:UIColor? = nil){
+     func setBackButtonTitle(text:String? = nil,color:UIColor? = nil){
         let backButton = UIBarButtonItem()
-        backButton.title = text
+        if text != nil {
+            backButton.title = text
+        }
         if color != nil {
             backButton.tintColor = color
         }
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    
+    func updateConstraintsImmediately() {
+        self.view.layoutIfNeeded() // To update constraints immediately
+    }
+    
+ 
+   
+    
+    public func hideKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    func hideNavigationbar(_ hide:Bool = true){
+        self.navigationController?.navigationBar.isHidden = hide
     }
     
 }

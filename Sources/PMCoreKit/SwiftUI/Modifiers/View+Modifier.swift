@@ -11,26 +11,44 @@ import SwiftUI
 
 
 
-extension View {
+public extension View {
     /// - Corner radius to any view
-    public func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
     
     /// - To Appear only one time - View Did Load
-    public func onFirstAppear( perform: @escaping () -> Void ) -> some View {
+    func onFirstAppear( perform: @escaping () -> Void ) -> some View {
         return self.modifier(OnFirstAppearModifier(perform: perform))
     }
    
     /// - Hide keyboard when tap around the screen
-    public func hideKeyboardWhenTappedAround() -> some View  {
+    func hideKeyboardWhenTappedAround() -> some View  {
         return self.onTapGesture {
             UIApplication.shared.endEditing()
         }
     }
     
+    func fillWidth() -> some View {
+        return self.frame(maxWidth: .infinity)
+    }
+    
+    func fillHeight() -> some View {
+        return self.frame(maxHeight: .infinity)
+    }
+    
+    func fillWidthHeight() -> some View {
+        return self.frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    func fillWidthTextAlignment(alignment:Alignment = .leading) -> some View {
+        return self.frame(maxWidth: .infinity,alignment: alignment)
+    }
+    
+    
     /// - Skelton animation
-    @ViewBuilder public func unredacted(when condition: Bool) -> some View {
+    @available(iOS 14.0, *)
+    @ViewBuilder func unredacted(when condition: Bool) -> some View {
         if condition {
             unredacted()
         } else {
@@ -40,7 +58,7 @@ extension View {
     }
     
     /// - Present Half Screen
-    @ViewBuilder public func halfModel(offSet: CGSize) -> some View {
+    @ViewBuilder func halfModel(offSet: CGSize) -> some View {
         let fullScreen = UIScreen.main.bounds
         var offSet1 = offSet
         self.animation(.spring())
@@ -63,19 +81,19 @@ extension View {
 }
 
 /// - To apply corner radius
-public struct RoundedCorner: Shape {
+struct RoundedCorner: Shape {
     
-    public var radius: CGFloat = .infinity
-    public var corners: UIRectCorner = .allCorners
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
     
-    public func path(in rect: CGRect) -> Path {
+    func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
     }
 }
 
 /// - Hide keyboard when tap around the screen
- struct OnFirstAppearModifier: ViewModifier {
+struct OnFirstAppearModifier: ViewModifier {
     let perform:() -> Void
     @State private var firstTime: Bool = true
     
@@ -92,25 +110,8 @@ public struct RoundedCorner: Shape {
 
 
 /// - Skelton animation
-extension RedactionReasons {
-    public static let text = RedactionReasons(rawValue: 1 << 2)
-    public static let images = RedactionReasons(rawValue: 1 << 4)
-}
-
-
-/* -------------  Border  -------------- */
-extension View {
-    public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
-        return overlay(RoundedRectangle(cornerRadius: cornerRadius).strokeBorder(content, lineWidth: width))
-    }
-}
-/* -------------  Border  -------------- */
-
-
-extension View {
-    public func makeButtonPadding() -> some View {
-        return self
-            .padding([.leading,.trailing],20)
-            .padding([.top,.bottom],10)
-    }
+@available(iOS 14.0, *)
+public extension RedactionReasons {
+    static let text = RedactionReasons(rawValue: 1 << 2)
+    static let images = RedactionReasons(rawValue: 1 << 4)
 }

@@ -6,24 +6,24 @@ import UIKit
 // MARK: - 🦆 Type definitions
 
 /// An abstract protocol that defines an alignment.
-protocol Alignment {}
+protocol UIAlignment {}
 
 /// Defines an alignment for UI elements.
-public enum HorizontalAlignment: Alignment {
+public enum HorizontalAlignment: UIAlignment {
     case left
     case justified
     case right
 }
 
 /// Defines a vertical alignment for UI elements.
-public enum VerticalAlignment: Alignment {
+public enum VerticalAlignment: UIAlignment {
     case top
     case center
     case bottom
 }
 
 /// Describes an axis with respect to which items can be aligned.
-private struct AlignmentAxis<A: Alignment> {
+private struct AlignmentAxis<A: UIAlignment> {
     
     /// Determines how items are aligned relative to the axis.
     let alignment: A
@@ -35,11 +35,11 @@ private struct AlignmentAxis<A: Alignment> {
 }
 
 
-/// A `UICollectionViewFlowLayout` subclass that gives you control
+/// A `UICollectionViewFlowLayout` subpublic class that gives you control
 /// over the horizontal and vertical alignment of the cells.
 /// You can use it to align the cells like words in a left- or right-aligned text
 /// and you can specify how the cells are vertically aligned in their row.
-open class AlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+ public class AlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     // MARK: - 🔶 Properties
     

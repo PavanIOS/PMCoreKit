@@ -59,13 +59,6 @@ func isLoggedInAlready() -> Bool {
         }
     }
     
-    let authData = AuthenticationDataStore().getData()
-    
-    if !authData.studentId.isEmpty && !authData.customerPassword.isEmpty {
-        return true
-    }
-    
-    
     return false
 }
 

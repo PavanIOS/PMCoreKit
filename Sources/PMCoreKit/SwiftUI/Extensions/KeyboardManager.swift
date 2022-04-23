@@ -36,7 +36,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillSho
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardDidHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
 }
 
-    publicfunc removeObserver() {
+    public func removeObserver() {
  NotificationCenter.default.removeObserver(self)
 }
 
@@ -46,7 +46,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillSho
 
 
 
-    public @objc func keyBoardWillShow(notification: Notification) {
+     @objc public func keyBoardWillShow(notification: Notification) {
         if keyboardIsHidden {
             keyboardIsHidden = false
             if let rect = notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? CGRect {
@@ -56,7 +56,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillSho
         }
     }
 
-    public @objc func keyBoardDidHide(notification: Notification) {
+     @objc public func keyBoardDidHide(notification: Notification) {
         keyboardIsHidden = true
         updateSlide()
     }

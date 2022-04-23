@@ -15,7 +15,7 @@ private struct SafeAreaInsetsKey: EnvironmentKey {
     }
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     
     public var safeAreaInsets: EdgeInsets {
         self[SafeAreaInsetsKey.self]
@@ -32,7 +32,7 @@ private extension UIEdgeInsets {
 
 
 //MARK: - Binding Extension
-extension Binding {
+public extension Binding {
     public func onChange(_ handler: @escaping (Value) -> Void) -> Binding<Value> {
         Binding(
             get: { self.wrappedValue },

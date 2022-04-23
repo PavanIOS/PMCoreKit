@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 
-class BaseNavigationManager {
+ public class BaseNavigationManager {
     
     static func baseViewSetup(_ window:UIWindow?){
    
-        if isLoggedInAlready(){
-            self.loadExistingUserScreen(window)
-        }else{
-            self.loadOnBoarding(window)
-        }
+//        if isLoggedInAlready(){
+//            self.loadExistingUserScreen(window)
+//        }else{
+//            self.loadOnBoarding(window)
+//        }
 //        if UserDefaults().bool(forKey: "Onboarding") {
 //            let authModel = AuthenticationDataStore().getData()
 //            if authModel.studentId != "" {

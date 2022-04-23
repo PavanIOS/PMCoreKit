@@ -10,54 +10,66 @@ import SwiftUI
 public struct CustomButtonStyle: ButtonStyle {
     var bgColor = Color.white
     var textColor = Color.black
-    func makeBody(configuration: Self.Configuration) -> some View {
+    public func makeBody(configuration: Self.Configuration) -> some View {
         return configuration.label
             .padding([.leading,.trailing], 15)
-            .padding([.top,.bottom], 5)
+            .padding([.top,.bottom], 8)
             .background(bgColor)
             .foregroundColor(textColor)
             .opacity(configuration.isPressed ? 0.7 : 1)
            // .scaleEffect(configuration.isPressed ? 0.8 : 1)
             .animation(.easeInOut(duration: 0.2))
-            .cornerRadius(5)
+            .cornerRadius(10)
     }
 }
-
-
-
 
 public struct TextButton : View {
     var handler: () -> Void
     var text = ""
+    var bgColor = Color.green
+    var txtColor = Color.white
+    var fullWidth = false
     
-    var bgColor = Color.black
     
-    var body: some View {
+    public var body: some View {
         
-        HStack {
-            Spacer()
-            Button {
-                handler()
-            } label: {
-                Text(text).foregroundColor(.white)
-                    .makeButtonPadding()
-                    //.padding([.leading,.trailing],20).padding([.top,.bottom],10)
-            }.background(bgColor).cornerRadius(5)
+        Button {
+            handler()
+        } label: {
+            if fullWidth {
+                Text(text).foregroundColor(txtColor)
+                    .padding([.leading,.trailing],20)
+                    .padding([.top,.bottom],5).font(.headline)
+                    .frame(maxWidth:.infinity,minHeight: 44)
+            }
+            else{
+                Text(text).foregroundColor(txtColor)
+                    .padding([.leading,.trailing],20)
+                    .padding([.top,.bottom],5).font(.headline)
+            }
         }
+        .background(bgColor).cornerRadius(8)
         
     }
 }
 
-public struct PlainTextButton : View {
-    var text = ""
+
+
+public struct ImageButton : View {
+    var handler: (() -> Void?)? = nil
+    var image : Image
+    var bgColor = Color.green
+    var color : Color? = nil
     
-    var bgColor = Color.black
-    
-    var body: some View {
-            
-            Text(text).foregroundColor(.white)
-            .padding([.leading,.trailing],20)
-            .padding([.top,.bottom],10)
-            background(bgColor).cornerRadius(5)
+    public var body: some View {
+        
+        HStack {
+            Spacer()
+            Button {
+                handler?()
+            } label: {
+                image
+            }.background(bgColor).cornerRadius(5)
+        }
     }
 }
