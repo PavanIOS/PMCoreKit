@@ -1,15 +1,14 @@
-public struct PMCoreKit {
-    public private(set) var text = "Hello, World!"
+//public struct PMCoreKit {
+//    public private(set) var text = "Hello, World!"
+//
+//    public init() {
+//    }
+//}
 
-    public init() {
-    }
-}
 
 
-
-public class SampleCoreKit {
+public class PMCoreKit {
     
-    public static let testData = "This is PMCoreKit "
     
-    public static let welcomeMessage = "This is PMCoreKit"
+    public static let welcomeMessage = "Welcome to PMCoreKit"
 }
