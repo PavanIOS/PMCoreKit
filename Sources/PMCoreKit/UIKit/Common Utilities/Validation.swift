@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Validation {
+public class Validation {
     
     static func isReachable(_ showAlert:Bool = true) -> Bool{
         guard NetworkManager.shared.isReachable() else {

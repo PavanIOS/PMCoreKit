@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CustomFonts {
+public class CustomFonts {
     
     
     enum FontSizes : CGFloat {
@@ -132,7 +132,7 @@ extension CustomFonts {
 
 
 // This app Fonts
-extension CustomFonts {
+public extension CustomFonts {
     static let Regular_10 = getRegularFont(.LOW)
     static let Regular_12 = getRegularFont(.SHORT)
     static let Regular_15 = getRegularFont(.NORMAL)

@@ -368,7 +368,7 @@ extension SCNetworkReachabilityFlags {
  against memory management race conditions when invoking the callbacks.
  #### Race Condition
  If we passed `SCNetworkReachabilitySetCallback` a direct reference to our
- `Reachability` class without also providing corresponding retain/release
+ `Reachability` public class without also providing corresponding retain/release
  callbacks, then a race condition can lead to crashes when:
  - `Reachability` is deallocated on thread X
  - A `SCNetworkReachability` callback(s) is already in flight on thread Y

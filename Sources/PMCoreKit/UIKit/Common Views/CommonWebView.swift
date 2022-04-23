@@ -9,14 +9,14 @@
 import UIKit
 import WebKit
 
-class CommonWebView: UIViewController {
+public class CommonWebView: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     var webUrl = ""
     
     var request : URLRequest? = nil
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         if #available(iOS 11.0, *) {
@@ -53,8 +53,8 @@ class CommonWebView: UIViewController {
     
     
 }
-extension CommonWebView : WKNavigationDelegate  {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+ extension CommonWebView : WKNavigationDelegate  {
+     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 //        if let url = webView.url {
 //            let request = URLRequest(url: url)
 //            let resp: CachedURLResponse? = URLCache.shared.cachedResponse(for: request)

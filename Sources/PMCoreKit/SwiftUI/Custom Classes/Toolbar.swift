@@ -35,7 +35,7 @@ import Foundation
 //        Coordinator(self)
 //    }
 //    
-//    final class Coordinator: NSObject, UIToolbarDelegate, UIBarPositioning {
+//    final public class Coordinator: NSObject, UIToolbarDelegate, UIBarPositioning {
 //        var toolbar: Toolbar
 //        var barPosition: UIBarPosition
 //        

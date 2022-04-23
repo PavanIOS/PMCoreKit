@@ -705,7 +705,7 @@ public typealias OrderedDictionaryValues<Key: Hashable, Value> = LazyMapBidirect
 // MARK: - Literals
 // ======================================================= //
 
-extension OrderedDictionary: ExpressibleByArrayLiteral {
+ extension OrderedDictionary: ExpressibleByArrayLiteral {
     
     /// Initializes an ordered dictionary initialized from an array literal containing a list of
     /// key-value pairs. Every key in `elements` must be unique.
@@ -715,7 +715,7 @@ extension OrderedDictionary: ExpressibleByArrayLiteral {
     
 }
 
-extension OrderedDictionary: ExpressibleByDictionaryLiteral {
+ extension OrderedDictionary: ExpressibleByDictionaryLiteral {
     
     /// Initializes an ordered dictionary initialized from a dictionary literal. Every key in
     /// `elements` must be unique.
@@ -738,7 +738,7 @@ extension OrderedDictionary: Equatable where Value: Equatable {}
 
 #endif
 
-extension OrderedDictionary where Value: Equatable {
+ extension OrderedDictionary where Value: Equatable {
 
     /// Returns a Boolean value that indicates whether the two given ordered dictionaries with
     /// equatable values are equal.
@@ -750,10 +750,10 @@ extension OrderedDictionary where Value: Equatable {
 }
 
 // ======================================================= //
-// MARK: - Dictionary Extension
+// MARK: - Dictionary public extension
 // ======================================================= //
 
-extension Dictionary {
+public extension Dictionary {
     
     /// Returns an ordered dictionary containing the key-value pairs from the dictionary, sorted
     /// using the given sort function.

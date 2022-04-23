@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmptyCollectionViewCell: UICollectionViewCell {
+public class EmptyCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var bgView: CustomView!
@@ -25,7 +25,7 @@ class EmptyCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
@@ -35,7 +35,7 @@ class EmptyCollectionViewCell: UICollectionViewCell {
     
     
     
-    override var isSelected: Bool {
+    public override var isSelected: Bool {
         didSet {
            // self.setSelected(selected: isSelected)
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HttpDownloader{
+public class HttpDownloader{
     
     static let shared = HttpDownloader()
     

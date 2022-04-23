@@ -17,7 +17,7 @@ import UIKit
     @objc optional func textView(_ textView: CustomTextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
 }
 
-class CustomTextView: UITextView {
+public class CustomTextView: UITextView {
     
     var placeholderLabel = UILabel()
     
@@ -62,13 +62,13 @@ class CustomTextView: UITextView {
     var leftPadding : CGFloat = 10
     
     
-    override var bounds: CGRect {
+    public override var bounds: CGRect {
         didSet {
             placeholderLabel.frame = CGRect(x: leftPadding, y: (self.font?.pointSize ?? 15) / 2 - 5, width: self.frame.width, height: 30)
         }
     }
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         self.initSetup()
     }
@@ -133,24 +133,24 @@ class CustomTextView: UITextView {
     }
 }
 
-extension CustomTextView : UITextViewDelegate {
+ extension CustomTextView : UITextViewDelegate {
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         self.hideAndShowPlaceHolder()
         textInputDelegate?.textViewDidChange?(textView as! CustomTextView)
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    public func textViewDidEndEditing(_ textView: UITextView) {
         textView.resignFirstResponder()
         textInputDelegate?.textViewDidEndEditing?(textView as! CustomTextView)
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    public func textViewDidBeginEditing(_ textView: UITextView) {
         textInputDelegate?.textViewDidBeginEditing?(textView as! CustomTextView)
     }
     
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         let finalText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         if maxLength > 0, maxLength < finalText.utf8.count {
@@ -161,7 +161,7 @@ extension CustomTextView : UITextViewDelegate {
 }
 
 
-extension CustomTextView {
+public extension CustomTextView {
     func setCommonTextView(_ placeHolder:String){
         self.font = CustomFonts.getRegularFont(.NORMAL)
         self.initSetup()

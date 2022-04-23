@@ -16,7 +16,7 @@ public enum SMIconVerticalPosition {
 public typealias SMIconPosition = (horizontal: SMIconHorizontalPosition, vertical: SMIconVerticalPosition)
 
 
-open class CustomLabel: UILabel {
+public class CustomLabel: UILabel {
     var section = 0
     var row = 0
     
@@ -107,7 +107,7 @@ open class CustomLabel: UILabel {
     }
 }
 
-extension CustomLabel {
+public extension CustomLabel {
     
     
     open override func drawText(in rect: CGRect) {
@@ -180,18 +180,18 @@ extension CustomLabel {
 }
 
 
-@IBDesignable class PaddingLabel: CustomLabel {
+@IBDesignable public class PaddingLabel: CustomLabel {
     @IBInspectable var topInset: CGFloat = 5.0
     @IBInspectable var bottomInset: CGFloat = 5.0
     @IBInspectable var leftInset: CGFloat = 7.0
     @IBInspectable var rightInset: CGFloat = 7.0
     
-    override func drawText(in rect: CGRect) {
+    public override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         super.drawText(in: rect.inset(by: insets))
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
         return CGSize(width: size.width + leftInset + rightInset,
                       height: size.height + topInset + bottomInset)
@@ -200,7 +200,7 @@ extension CustomLabel {
 
 
 
-class BadgeLabel : CustomLabel {
+public class BadgeLabel : CustomLabel {
     
     
     func updateBadgeValue(count:Int) {

@@ -85,7 +85,7 @@ public class Colors : UIColor {
 }
 
 
-extension Colors {
+public extension Colors {
   
     
     
@@ -168,8 +168,8 @@ extension Colors {
 
 
 
-//MARK: - Extensions
-extension UIColor {
+//MARK: - public extensions
+public extension UIColor {
     
     var isLight: Bool {
         var white: CGFloat = 0
@@ -265,14 +265,14 @@ extension UIColor {
 }
 
 
-extension CGFloat {
+public extension CGFloat {
     static func random() -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
 }
 
 
-extension String {
+public extension String {
     
     func color() -> UIColor {
         return UIColor(hex: self)

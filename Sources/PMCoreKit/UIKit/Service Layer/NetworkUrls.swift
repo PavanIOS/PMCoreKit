@@ -21,7 +21,7 @@ enum EnvironmentType {
 
 
 let currentEnvironment : EnvironmentType = .DEV
-class NetworkUrls {
+public class NetworkUrls {
     
   
     

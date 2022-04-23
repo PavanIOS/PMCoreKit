@@ -37,7 +37,7 @@ extension OrderedDictionary: Decodable where Key: Decodable, Value: Decodable {
     
 #else
 
-extension OrderedDictionary: Encodable {
+public extension OrderedDictionary: Encodable {
 
     /// __inheritdoc__
     public func encode(to encoder: Encoder) throws {
@@ -73,7 +73,7 @@ extension OrderedDictionary: Encodable {
 
 }
 
-extension OrderedDictionary: Decodable {
+public extension OrderedDictionary: Decodable {
 
     /// __inheritdoc__
     public init(from decoder: Decoder) throws {
@@ -120,7 +120,7 @@ extension OrderedDictionary: Decodable {
 
 #endif
 
-extension DecodingError {
+public extension DecodingError {
     
     fileprivate static func unkeyedContainerReachedEndBeforeValue(
         _ codingPath: [CodingKey]

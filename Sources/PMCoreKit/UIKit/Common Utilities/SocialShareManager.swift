@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 
 
-class SocialShareManager {
+public class SocialShareManager {
     
     static let shared = SocialShareManager()
     

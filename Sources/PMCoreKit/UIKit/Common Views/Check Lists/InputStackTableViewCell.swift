@@ -7,10 +7,11 @@
 //
 
 import UIKit
+#if canImport(SDWebImage)
 import SDWebImage
+#endif
 
-
-class InputStackTableViewCell: CustomTableViewCell {
+public class InputStackTableViewCell: CustomTableViewCell {
     
     @IBOutlet weak var bgStackView: CustomStackView!
     @IBOutlet weak var titleLbl: CustomLabel!
@@ -22,23 +23,23 @@ class InputStackTableViewCell: CustomTableViewCell {
     
     
     
-    override func prepareForReuse() {
+    public override func prepareForReuse() {
         self.bgStackView.removeBorders()
     }
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         initCell()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
     
-    func initCell()
+    public func initCell()
     {
         self.selectionStyle = .none
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +55,7 @@ class InputStackTableViewCell: CustomTableViewCell {
     
     
     
-    func updateCellData(_ model:TextInputModel,_ indexPath:IndexPath) {
+     public func updateCellData(_ model:TextInputModel,_ indexPath:IndexPath) {
         
         let subviews = self.bgStackView.arrangedSubviews
         for subview in subviews {
@@ -104,7 +105,7 @@ class InputStackTableViewCell: CustomTableViewCell {
     }
     
     
-    func dataDidChange(_ data:String,_ selectedId:String,_ section:Int,_ row:Int,_ item:Int,_ reload:Bool) -> DelegateParser{
+    public func dataDidChange(_ data:String,_ selectedId:String,_ section:Int,_ row:Int,_ item:Int,_ reload:Bool) -> DelegateParser{
         let parser = DelegateParser()
         parser.data = data
         parser.selectedId = selectedId
@@ -120,9 +121,9 @@ class InputStackTableViewCell: CustomTableViewCell {
 
 
 // MARK: Text Field
-extension InputStackTableViewCell {
+ extension InputStackTableViewCell {
     
-    func showTextField(_ model:TextInputModel,_ indexPath:IndexPath){
+   public func showTextField(_ model:TextInputModel,_ indexPath:IndexPath){
         let textField = CustomTextField()
         textField.section = indexPath.section
         textField.row = indexPath.row
@@ -192,8 +193,8 @@ extension InputStackTableViewCell {
 
 
 // MARK: - Text View
-extension InputStackTableViewCell {
-    func showTextView(_ model:TextInputModel,_ indexPath:IndexPath){
+ extension InputStackTableViewCell {
+     public func showTextView(_ model:TextInputModel,_ indexPath:IndexPath){
         let textView = CustomTextView()
         textView.section = indexPath.section
         textView.row = indexPath.row
@@ -219,8 +220,8 @@ extension InputStackTableViewCell {
 }
 
 // MARK: - Check Box
-extension InputStackTableViewCell {
-    func showCheckBox(_ model:TextInputModel,_ indexPath:IndexPath) {
+ extension InputStackTableViewCell {
+     public func showCheckBox(_ model:TextInputModel,_ indexPath:IndexPath) {
         
         let checkboxButton = CustomButton()
         checkboxButton.initSetup()
@@ -256,9 +257,9 @@ extension InputStackTableViewCell {
 
 
 // MARK: - Question
-extension InputStackTableViewCell {
+ extension InputStackTableViewCell {
     
-    func showQuestion(_ model:TextInputModel,_ indexPath:IndexPath) {
+     public func showQuestion(_ model:TextInputModel,_ indexPath:IndexPath) {
         let stackView = CustomStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -298,9 +299,9 @@ extension InputStackTableViewCell {
 }
 
 // MARK: - Media
-extension InputStackTableViewCell {
+ extension InputStackTableViewCell {
     
-    func showMedia(_ model:TextInputModel,_ indexPath:IndexPath) {
+     public func showMedia(_ model:TextInputModel,_ indexPath:IndexPath) {
         
         let button = CustomButton()
         button.initSetup()
@@ -321,7 +322,8 @@ extension InputStackTableViewCell {
         for mediaItem in model.mediaList {
             let imageView = CustomImageView()
             if let item = mediaItem as? String {
-                imageView.sd_setImage(with: item.toUrl, completed: nil)
+                imageView.setImage(item)
+                //sd_setImage(with: item.toUrl, completed: nil)
                 mediaStackView.addArrangedSubview(imageView)
             }
         }
@@ -334,8 +336,8 @@ extension InputStackTableViewCell {
 }
 
 // MARK: - Slider
-extension InputStackTableViewCell {
-    func showSlider(_ model:TextInputModel,_ indexPath:IndexPath) {
+ extension InputStackTableViewCell {
+    public func showSlider(_ model:TextInputModel,_ indexPath:IndexPath) {
         
         let stackView = CustomStackView()
         stackView.axis = .horizontal
@@ -392,9 +394,9 @@ extension InputStackTableViewCell {
 }
 
 // MARK: - Switch
-extension InputStackTableViewCell {
+ extension InputStackTableViewCell {
     
-    func showSwitch(_ model:TextInputModel,_ indexPath:IndexPath) {
+     public func showSwitch(_ model:TextInputModel,_ indexPath:IndexPath) {
         let cSwitch = CustomSwitch()
         cSwitch.section = indexPath.section
         cSwitch.row = indexPath.row
@@ -443,13 +445,13 @@ extension InputStackTableViewCell : CustomTextFieldDelegate {
 }
 
 extension InputStackTableViewCell : CustomTextViewDelegate {
-    func textViewDidChange(_ textView: CustomTextView) {
+     public func textViewDidChange(_ textView: CustomTextView) {
         //        let parser = dataDidChange(textView.text, "", textView.section, textView.row, 0, false)
         //        parser.fieldType = .MULTI_LINE_TF
         //        delegate?.didChangeValue(parser)
     }
     
-    func textViewDidEndEditing(_ textView: CustomTextView) {
+     public func textViewDidEndEditing(_ textView: CustomTextView) {
         let parser = dataDidChange(textView.text, "", textView.section, textView.row,0, true)
         parser.fieldType = .MULTI_LINE_TF
         delegate?.didChangeValue(parser)

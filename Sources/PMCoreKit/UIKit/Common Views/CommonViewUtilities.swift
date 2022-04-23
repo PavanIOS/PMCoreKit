@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class CommonViewUtilities {
+public class CommonViewUtilities {
     
     static func loadAutoCompleteView(_ view:UIViewController,_ list:[OrderedDictionaryModel],_ isMultiSelection:Bool,_ title:String,_ maximumLimit:Int = 0,completion: @escaping (String,[OrderedDictionaryModel]) -> Void){
         

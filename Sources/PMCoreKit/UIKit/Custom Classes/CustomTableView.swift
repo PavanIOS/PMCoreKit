@@ -2,7 +2,7 @@
 
 import UIKit
 
-class CustomTableView: UITableView {
+public class CustomTableView: UITableView {
     
     
     public enum EffectEnum {
@@ -15,7 +15,7 @@ class CustomTableView: UITableView {
     var registerHeaders = [String]()
     
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         self.initialSetup()
     }
@@ -163,7 +163,7 @@ class CustomTableView: UITableView {
 }
 
 
-class SelfSizedTableView: CustomTableView {
+public class SelfSizedTableView: CustomTableView {
     
     override open var contentSize: CGSize {
         didSet { // basically the contentSize gets changed each time a cell is added
@@ -183,7 +183,7 @@ class SelfSizedTableView: CustomTableView {
 
 
 
-extension UITableView {
+public extension UITableView {
     
     func isLastSection(section:Int) -> Bool{
         let totalSections = self.numberOfSections

@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class HeaderModel {
+public class HeaderModel {
     var comments = ""
     var status = ""
     var UTCTimeStamp = ""

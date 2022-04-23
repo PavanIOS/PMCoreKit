@@ -25,7 +25,7 @@ public protocol SignatureViewDelegate: AnyObject {
     func SignatureViewDidCancelDrawing(view: SignatureView)
 }
 
-extension SignatureViewDelegate {
+public extension SignatureViewDelegate {
     
     func SignatureViewDidCaptureSignature(view: SignatureView, signature: Signature?) {
         //optional
@@ -48,10 +48,10 @@ extension SignatureViewDelegate {
     }
 }
 
-// MARK: - Class Decleration
+// MARK: - public class Decleration
 
 @IBDesignable
-open class SignatureView: UIView {
+ public class SignatureView: UIView {
     
     // MARK: - Public properties
     
@@ -242,7 +242,7 @@ open class SignatureView: UIView {
 //MARK: Implementation
 
 /*
- class ViewController: UIViewController, SignatureViewDelegate {
+ public class ViewController: UIViewController, SignatureViewDelegate {
  
  @IBOutlet weak var signatureView: SignatureView!
  

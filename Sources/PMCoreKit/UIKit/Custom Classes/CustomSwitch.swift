@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 
 
-class CustomSwitch: UISwitch {
+public class CustomSwitch: UISwitch {
 
     var section = 0
     var row = 0
@@ -12,7 +12,7 @@ class CustomSwitch: UISwitch {
 
 
 
-extension UISwitch {
+public extension UISwitch {
 
     func set(width: CGFloat, height: CGFloat) {
 

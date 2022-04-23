@@ -312,7 +312,7 @@ extension UITableView {
 
 
 //MARK: - UICollectionView Extension
-extension UICollectionView {
+public extension UICollectionView {
     // To Check Valid IndexPath/Item
     func indexPathIsValid(indexPath: IndexPath) -> Bool {
         return indexPath.section < self.numberOfSections && indexPath.row < self.numberOfItems(inSection: indexPath.section)
@@ -320,8 +320,8 @@ extension UICollectionView {
 }
 
 
-//MARK: - UIStackView Extension
-extension UIStackView {
+//MARK: - UIStackView public extension
+public extension UIStackView {
     func addBackground(color: UIColor) {
         if let prevColor = self.subviews.filter({$0.accessibilityIdentifier == "color"}).first {
             prevColor.backgroundColor = color
@@ -364,14 +364,14 @@ extension UIStackView {
 }
 
 
-//MARK: - UIScreen Extension
+//MARK: - UIScreen public extension
 public extension UIScreen {
-    class var Orientation: UIInterfaceOrientation {
+    public class var Orientation: UIInterfaceOrientation {
         get {
             return UIApplication.shared.statusBarOrientation
         }
     }
-    class var ScreenWidth: CGFloat {
+    public class var ScreenWidth: CGFloat {
         get {
             if Orientation.isPortrait {
                 return UIScreen.main.bounds.size.width
@@ -380,7 +380,7 @@ public extension UIScreen {
             }
         }
     }
-    class var ScreenHeight: CGFloat {
+    public class var ScreenHeight: CGFloat {
         get {
             if Orientation.isPortrait {
                 return UIScreen.main.bounds.size.height
@@ -396,9 +396,9 @@ public extension UIScreen {
 
 
 //MARK: - UIApplication Extension
-extension UIApplication {
+public extension UIApplication {
     
-    class func topViewController(_ viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    public class func topViewController(_ viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = viewController as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }
@@ -419,8 +419,8 @@ extension UIApplication {
 }
 
 
-//MARK: - UINavigationBar Extension
-extension UINavigationBar {
+//MARK: - UINavigationBar public extension
+public extension UINavigationBar {
     func hideBorderLine() {
         self.hairlineImageView?.isHidden = true
     }
@@ -431,8 +431,8 @@ extension UINavigationBar {
 }
 
 
-//MARK: - UIToolbar Extension
-extension UIToolbar {
+//MARK: - UIToolbar public extension
+public extension UIToolbar {
     func hideBottomHairline() {
         self.hairlineImageView?.isHidden = true
     }
@@ -444,7 +444,7 @@ extension UIToolbar {
 
 
 //MARK: - UISegmentedControl Extension
-extension UISegmentedControl {
+public extension UISegmentedControl {
     enum SegmentAlignment {
         case Left
         case Right
@@ -479,7 +479,7 @@ extension UISegmentedControl {
 
 
 
-extension UISearchBar {
+public extension UISearchBar {
     func changeSearchBarColor(color : UIColor) {
         
         if let textfield = self.value(forKey: "searchField") as? UITextField {
@@ -494,7 +494,7 @@ extension UISearchBar {
 }
 
 
-extension UINavigationController {
+public extension UINavigationController {
     
     func containsViewController(ofKind kind: AnyClass) -> Bool {
         return self.viewControllers.contains(where: { $0.isKind(of: kind) })
@@ -518,7 +518,7 @@ extension UINavigationController {
 
 
 // MARK: Add and Remove Child View Controllers
-extension UIViewController {
+public extension UIViewController {
     
     func getCustomBarButton(icon:UIImage) -> CustomButton {
         let size : CGFloat = 50.0
@@ -626,7 +626,7 @@ extension UIViewController {
 
 
 //MARK: - Different corners
-extension UIBezierPath {
+public extension UIBezierPath {
     convenience init(shouldRoundRect rect: CGRect, topLeftRadius: CGSize = .zero, topRightRadius: CGSize = .zero, bottomLeftRadius: CGSize = .zero, bottomRightRadius: CGSize = .zero){
 
         self.init()
@@ -678,7 +678,7 @@ extension UIBezierPath {
 }
 
 
-extension UIView {
+public extension UIView {
     func roundCorners(_ topLeft: CGFloat = 0,_ topRight: CGFloat = 0,_ bottomLeft: CGFloat = 0,_ bottomRight: CGFloat = 0) {//(topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) {
           let topLeftRadius = CGSize(width: topLeft, height: topLeft)
           let topRightRadius = CGSize(width: topRight, height: topRight)

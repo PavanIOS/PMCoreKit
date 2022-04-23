@@ -61,16 +61,15 @@ public struct ImagePickerView: UIViewControllerRepresentable {
                 
                 if let finalImageUrl = imageURL {
                     
-                    let newImageUrl = MediaUtilities.shared.getImagesDirectory(finalImageUrl.lastPathComponent)
-                    MediaUtilities.shared.saveImageToDirectory(image, newImageUrl)
-                    self.onImagePicked(image,imageURL)
+        let newImageUrl = MediaUtilities.shared.createAndMoveToImagesFolder(finalImageUrl)
+                    self.onImagePicked(image,newImageUrl)
                 }
                 else{
-                    let fileName = MediaUtilities.shared.createTempName()
-                    let newImageUrl = MediaUtilities.shared.getTempDirectory().appendingPathComponent(fileName)
+                    let fileName = MediaUtilities.shared.createNewImageFileName()
+                    let newImageUrl = MediaUtilities.shared.getImagesFileUrl(fileName)
                     MediaUtilities.shared.saveImageToDirectory(image, newImageUrl)
                     
-                    self.onImagePicked(image,imageURL)
+                    self.onImagePicked(image,newImageUrl)
                 }
                 
             }

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class LanguageKeys {
+public class LanguageKeys {
     static let shared = LanguageKeys()
     
     func getSelectedLanguage() -> String{

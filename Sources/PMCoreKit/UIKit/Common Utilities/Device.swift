@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-open class Device {
+ public class Device {
     static fileprivate func getVersionCode() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)

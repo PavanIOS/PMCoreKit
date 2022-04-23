@@ -12,16 +12,16 @@ import SwiftUI
 
 
 
-enum AlertType : String
+public enum AlertType : String
 {
     case Normal
     case POPNAVIGATION
 }
-enum ActionSheetType : String {
+public enum ActionSheetType : String {
     case Normal
 }
 
-class CommonAlertView : NSObject {
+public class CommonAlertView : NSObject {
     static let shared = CommonAlertView()
     
     let newLine = "\n"
@@ -197,9 +197,9 @@ class CommonAlertView : NSObject {
     
 }
 
-extension CommonAlertView : UITextFieldDelegate{
+ extension CommonAlertView : UITextFieldDelegate{
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = textField.tag
         if  textField.keyboardType == .numberPad {
             let numberSet = CharacterSet.decimalDigits
@@ -218,7 +218,7 @@ extension CommonAlertView : UITextFieldDelegate{
 }
 
 
-class TextViewAlertController: UIAlertController,UITextViewDelegate {
+public class TextViewAlertController: UIAlertController,UITextViewDelegate {
     
     var textChangedBlock : ((UITextView) -> Void)?
     var maxLength = 0
@@ -243,10 +243,10 @@ class TextViewAlertController: UIAlertController,UITextViewDelegate {
     convenience init(title: String,message:String) {
         self.init(title: title + "\n\n\n\n\n\n", message: "", preferredStyle: .alert)
     }
-    override var preferredStyle: UIAlertController.Style {
+    public override var preferredStyle: UIAlertController.Style {
         return .alert
     }
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         view.addSubview(textView)
@@ -274,7 +274,7 @@ class TextViewAlertController: UIAlertController,UITextViewDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         textView.becomeFirstResponder()
         let textViewFrame = textView.frame
@@ -293,14 +293,14 @@ class TextViewAlertController: UIAlertController,UITextViewDelegate {
     }
     
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         self.textChangedBlock?(textView)
         if maxLength > 0 {
             countlbl.text = "\(maxLength - textView.text.count)"
         }
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         let finalText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         if maxLength > 0, maxLength < finalText.utf8.count {

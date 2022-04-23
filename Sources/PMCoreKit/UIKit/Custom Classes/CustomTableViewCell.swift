@@ -2,16 +2,16 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+public class CustomTableViewCell: UITableViewCell {
     
     weak var delegate : CustomCellParserDelegate?
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -80,7 +80,7 @@ class CustomTableViewCell: UITableViewCell {
      }
 }
 
-extension CustomTableViewCell {
+public extension CustomTableViewCell {
     func showAccessoryView(_ title:String = "",_ image:UIImage = UIImage(),_ enable:Bool = false,_ indexPath:IndexPath) {
           let button = CustomButton(type: .custom)
           button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)

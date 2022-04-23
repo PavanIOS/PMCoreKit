@@ -15,13 +15,13 @@ import UIKit
 let newLine = "\n"
 
 
-struct OrderedDictionaryModel {
+public struct OrderedDictionaryModel {
     var key = ""
     var value = ""
 }
 
 
-struct TableViewObjectModel {
+public struct TableViewObjectModel {
     var key = ""
     var value = ""
     var image : UIImage? = nil
@@ -33,7 +33,7 @@ struct TableViewObjectModel {
     }
 }
 
-struct GroupedObjectModel {
+public struct GroupedObjectModel {
     var headerTitle = ""
     var footerTitle = ""
     var list = [TableViewObjectModel]()
@@ -48,7 +48,7 @@ struct GroupedObjectModel {
 
 
 
-class EditTextModel {
+public class EditTextModel {
     var title = ""
     var data = ""
     var dropdownId = ""

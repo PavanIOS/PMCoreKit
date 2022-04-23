@@ -9,7 +9,7 @@ import Foundation
 
 
 
-class MediaContentTypes {
+public class MediaContentTypes {
     //doc
     static let TEXT_PLAIN = "text/plain"
     static let TEXT_HTML = "text/html"

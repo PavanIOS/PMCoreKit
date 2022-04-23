@@ -8,20 +8,20 @@
 
 import UIKit
 
-class EmptyTableViewCell: CustomTableViewCell {
+public class EmptyTableViewCell: CustomTableViewCell {
     
     static let cellId = "EmptyTableViewCell"
     
     
     var spacing : UIEdgeInsets? = nil
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.updateCell()
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
         if let spacer = spacing {
@@ -52,7 +52,7 @@ class EmptyTableViewCell: CustomTableViewCell {
         self.backgroundColor = bgColor
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

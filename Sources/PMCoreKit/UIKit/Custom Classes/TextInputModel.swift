@@ -5,7 +5,7 @@ import UIKit
 
 
 
-enum InputFieldType : Int {
+public enum InputFieldType : Int {
     case None = 0
     case SINGLE_LINE_TF
     case MULTI_LINE_TF
@@ -50,7 +50,7 @@ enum SectionTypes : Int {
 
 
 
-class TextInputModel {
+public class TextInputModel {
     var title = ""
     var data = ""
     var fieldId = ""
@@ -128,7 +128,7 @@ class TextInputModel {
 }
 
 
-class InputFieldModel {
+public class InputFieldModel {
     var fields = [TextInputModel]()
     var sectionTitle = ""
     var footerTitle = ""

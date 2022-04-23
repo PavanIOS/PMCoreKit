@@ -23,7 +23,7 @@ public class CustomView: UIView {
 }
 
 
-extension UIView {
+public extension UIView {
     
     func setCornerRadius(_ radius:CGFloat){
         self.layer.cornerRadius = radius
@@ -68,7 +68,7 @@ extension UIView {
     
 }
 
-extension UIView {
+public extension UIView {
     // In order to create computed properties for extensions, we need a key to
       // store and access the stored property
       fileprivate struct AssociatedObjectKeys {
@@ -93,7 +93,7 @@ extension UIView {
       
       // This is the meat of the sauce, here we create the tap gesture recognizer and
       // store the closure the user passed to us in the associated object we declared above
-      public func tapGesture(action: (() -> Void)?) {
+    func tapGesture(action: (() -> Void)?) {
           self.isUserInteractionEnabled = true
           self.tapGestureRecognizerAction = action
           let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
@@ -110,7 +110,7 @@ extension UIView {
           }
       }
     
-    public func longTapGesture(action: (() -> Void)?) {
+    func longTapGesture(action: (() -> Void)?) {
         self.isUserInteractionEnabled = true
         self.tapGestureRecognizerAction = action
         let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture(sender:)))
@@ -129,7 +129,7 @@ extension UIView {
 }
 
 
-extension UIView {
+public extension UIView {
     private static let layerNameTopBorder = "topBorder"
     private static let layerNameBottomBorder = "bottomBorder"
     private static let layerNameLeftBorder = "leftBorder"

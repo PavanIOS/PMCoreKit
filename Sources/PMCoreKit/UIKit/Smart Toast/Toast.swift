@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-class PriorityQueue {
+public class PriorityQueue {
   lazy var queue: OperationQueue = {
     let queue = OperationQueue()
     queue.maxConcurrentOperationCount = 1
@@ -20,7 +20,7 @@ class PriorityQueue {
   }()
 }
 
-class Toast: Operation {
+public class Toast: Operation {
   
   let toast:ToastView
   let delay:TimeInterval

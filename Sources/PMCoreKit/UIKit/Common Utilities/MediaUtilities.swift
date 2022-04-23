@@ -26,7 +26,7 @@ import UIKit
  
  */
 
-class FolderNames {
+public class FolderNames {
     static let Temp = "Temp"
     static let DOCUMENTS = "Documents"
     static let MESSAGING = "Messages"
@@ -35,7 +35,7 @@ class FolderNames {
 
 
 
-class MediaUtilities {
+public class MediaUtilities {
     
     static let shared = MediaUtilities()
     
@@ -154,7 +154,7 @@ class MediaUtilities {
 }
 
 
-extension MediaUtilities {
+public extension MediaUtilities {
     
     func saveImageToDirectory(_ image:UIImage,_ fileURL:URL) {
         do {
@@ -240,7 +240,7 @@ extension MediaUtilities {
     }
 }
 
-extension UIImage {
+public extension UIImage {
     enum JPEGQuality: CGFloat {
         case lowest  = 0
         case low     = 0.25
@@ -278,8 +278,8 @@ extension UIImage {
     }
 }
 
-// MARK: FileManager Extension
-extension FileManager {
+// MARK: FileManager public extension
+public extension FileManager {
     func urls(for directory: FileManager.SearchPathDirectory, skipsHiddenFiles: Bool = true ) -> [URL] {
         let documentsURL = urls(for: directory, in: .userDomainMask)[0]
         let fileURLs = try? contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: skipsHiddenFiles ? .skipsHiddenFiles : [] )
@@ -294,7 +294,7 @@ extension FileManager {
 
 
 //MARK: - Media Directories
-extension MediaUtilities {
+public extension MediaUtilities {
     
     func getTempDirectory() -> URL{
         return self.createFolder(folderName: FolderNames.Temp)!
@@ -382,7 +382,7 @@ extension MediaUtilities {
 
 
 //MARK: - Final Methods
-extension MediaUtilities {
+public extension MediaUtilities {
     
     
     func getAttachmentHandlerImageFilePath(_ oldFileName:String = "") -> URL{

@@ -14,7 +14,7 @@ All the things of an HTTP response
 */
 
 
-open class Response {
+ public class Response {
     open var headers: Dictionary<String,String>?
     open var mimeType: String?
     open var suggestedFilename: String?

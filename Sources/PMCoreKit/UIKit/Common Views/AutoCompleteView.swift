@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AutoCompleteView: UIViewController {
+public class AutoCompleteView: UIViewController {
     
     @IBOutlet weak var confirmButtom: CustomButton!
     @IBOutlet weak var autoCompleteTable: CustomTableView!
@@ -33,7 +33,7 @@ class AutoCompleteView: UIViewController {
     var bottomPadding : CGFloat = 0
     
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -49,7 +49,7 @@ class AutoCompleteView: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // if isMultiSelection {
         updateSafeAreaPadding()
@@ -141,15 +141,15 @@ class AutoCompleteView: UIViewController {
 
 extension AutoCompleteView : UITableViewDelegate,UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.filteredList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyTableViewCell", for: indexPath) as! EmptyTableViewCell
         
         let item = self.filteredList[indexPath.row]
@@ -167,7 +167,7 @@ extension AutoCompleteView : UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let item = self.filteredList[indexPath.row]
         if self.isMultiSelection {
@@ -209,20 +209,20 @@ extension AutoCompleteView : UITableViewDelegate,UITableViewDataSource {
 
 extension AutoCompleteView : UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         self.filteredList = self.autoCompleteData
         self.autoCompleteTable.reloadData()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchBar.text! //.components(separatedBy: ",").last ?? ""
         
         if searchText != "" {
@@ -234,7 +234,7 @@ extension AutoCompleteView : UISearchBarDelegate {
         }
     }
     
-    func filterMapData(searchText:String) {
+    public func filterMapData(searchText:String) {
         
         let filterData = self.autoCompleteData.filter({$0.value.lowercased().contains(searchText.lowercased())})
         

@@ -3,13 +3,13 @@
 
 import UIKit
 
-class CustomCollectionView: UICollectionView {
+public class CustomCollectionView: UICollectionView {
     var registerCells =    [String]()
     
     var headerCells = [String]()
     
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         self.initialSetup()
     }
@@ -56,15 +56,15 @@ class CustomCollectionView: UICollectionView {
 
 
 
-class SelfSizedCollectionView: CustomCollectionView {
-    override func layoutSubviews() {
+public class SelfSizedCollectionView: CustomCollectionView {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         if !__CGSizeEqualToSize(bounds.size, self.intrinsicContentSize) {
             self.invalidateIntrinsicContentSize()
         }
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return collectionViewLayout.collectionViewContentSize
     }
 }

@@ -12,7 +12,7 @@ import UIKit
 
 
 //MARK: - Bundle Extension
-extension Bundle {
+public extension Bundle {
     var displayName: String {
         return infoDictionary?[kCFBundleNameKey as String] as? String  ?? "Fleet+"
     }
@@ -27,8 +27,8 @@ extension Bundle {
 
 
 
-//MARK: - DispatchQueue Extension
-extension DispatchQueue {
+//MARK: - DispatchQueue public extension
+public extension DispatchQueue {
     
     static public func background(delay: Double = 0.0, background: (()->Void)? = nil, completion: (() -> Void)? = nil) {
         DispatchQueue.global(qos: .background).async {
@@ -43,7 +43,7 @@ extension DispatchQueue {
 }
 
 
-//MARK: - Double Extension
+//MARK: - Double public extension
 public extension Double {
     
     var stringValue : String {
@@ -80,7 +80,7 @@ public extension Double {
 
 
 //MARK: - Dictionary Extension
-extension Dictionary {
+public extension Dictionary {
     var queryString: String {
         var output: String = ""
         for (key,value) in self {
@@ -377,7 +377,7 @@ public extension String {
 
 
 //MARK: - NSAttributedString Extension
-extension NSAttributedString {
+public extension NSAttributedString {
     func height(withConstrainedWidth width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
@@ -396,7 +396,7 @@ extension NSAttributedString {
 }
 
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     var fontSize:CGFloat { return 17 }
     var boldFont:UIFont { return UIFont.systemFont(ofSize: fontSize, weight: .bold) }
     var normalFont:UIFont { return UIFont.systemFont(ofSize: fontSize, weight: .regular)}
@@ -529,7 +529,7 @@ extension NSMutableAttributedString {
 
 
 //MARK: - Bool Extension
-extension Bool {
+public extension Bool {
     
     var intValue: Int {
         return self ? 1 : 0
@@ -547,8 +547,8 @@ extension Bool {
 }
 
 
-//MARK: - Int Extension
-extension Int {
+//MARK: - Int public extension
+public extension Int {
     
     var boolValue: Bool {
         return self != 0
@@ -574,8 +574,8 @@ extension Int {
 
 
 
-//MARK: - URL Extension
-extension URL {
+//MARK: - URL public extension
+public extension URL {
     
     var attributes: [FileAttributeKey : Any]? {
         do {
@@ -687,8 +687,8 @@ extension URL {
 }
 
 
-//MARK: - Data Extension
-extension Data {
+//MARK: - Data public extension
+public extension Data {
     var html2AttributedString: NSAttributedString? {
         do {
             return try NSAttributedString(data: self, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
@@ -731,14 +731,14 @@ public extension HTTPURLResponse {
 
 
 //MARK: - Error Extension
-extension Error {
+public extension Error {
     var message : String {return self.localizedDescription}
     var code: Int { return (self as NSError).code }
     var domain: String { return (self as NSError).domain }
 }
 
 
-extension Array {
+public extension Array {
     
     mutating func randomElements(elements n: Int) -> [Element] {
         var returnCount = n
@@ -760,7 +760,7 @@ extension Array {
 
 
 // MARK: - String By Words
-extension String {
+public extension String {
     
     var byWords: [String] {
         return self.components(separatedBy: " ")
@@ -789,7 +789,7 @@ extension String {
 
 }
 
-extension String {
+public extension String {
     func verifyUrl () -> Bool {
         if let url = self.toUrl {
             return UIApplication.shared.canOpenURL(url)

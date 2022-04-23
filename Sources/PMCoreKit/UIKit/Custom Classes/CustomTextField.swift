@@ -43,7 +43,7 @@ enum CustomTFTypes : Int {
 }
 
 
-class CustomTextField: UITextField {
+public class CustomTextField: UITextField {
     
     public enum DateType :String{
         case date = "dd-MMM-yyyy"
@@ -125,7 +125,7 @@ class CustomTextField: UITextField {
     weak var textInputDelegate : CustomTextFieldDelegate?
     
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         initSetup()
     }
     
@@ -138,7 +138,7 @@ class CustomTextField: UITextField {
         self.delegate = self
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         border.frame = CGRect(x: 0, y: self.frame.size.height - bottomLayerWidth, width:  self.frame.size.width, height: self.frame.size.height)
     }
@@ -345,15 +345,15 @@ class CustomTextField: UITextField {
 }
 
 extension CustomTextField : UIPickerViewDelegate,UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.pickerDataSource.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if self.pickerDataSource.count > 0 && self.text == ""{
             self.selectedId = self.pickerDataSource[row].key
             self.selectedValue = self.pickerDataSource[row].value
@@ -363,7 +363,7 @@ extension CustomTextField : UIPickerViewDelegate,UIPickerViewDataSource {
         return  value
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if self.pickerDataSource.count > 0 {
             self.selectedId = self.pickerDataSource[row].key
             self.selectedValue = self.pickerDataSource[row].value
@@ -373,13 +373,13 @@ extension CustomTextField : UIPickerViewDelegate,UIPickerViewDataSource {
 }
 
 
-extension CustomTextField : UITextFieldDelegate {
+ extension CustomTextField : UITextFieldDelegate {
     
     @objc fileprivate func textFieldDidChange() {
         self.textInputDelegate?.textInputDidChange?(textField: self)
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+     public func textFieldDidBeginEditing(_ textField: UITextField) {
         if self.isAutoComplete {
             self.textInputDelegate?.textInputAutoComplete?(textField: textField as! CustomTextField)
             textField.endEditing(true)
@@ -388,11 +388,11 @@ extension CustomTextField : UITextFieldDelegate {
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+     public func textFieldDidEndEditing(_ textField: UITextField) {
         self.textInputDelegate?.textInputDidEndEditing?(textField: textField as! CustomTextField)
     }
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if self.isAutoComplete {
             self.textInputDelegate?.textInputAutoComplete?(textField: textField as! CustomTextField)
             return false
@@ -401,18 +401,18 @@ extension CustomTextField : UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         _ = self.textInputDelegate?.textInputShouldEndEditing?(textField: textField as! CustomTextField)
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         _ = self.textInputDelegate?.textInputShouldReturn?(textField: textField as! CustomTextField)
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // Handle backspace/delete
         guard !string.isEmpty else {
             // Backspace detected, allow text change, no need to process the text any further
@@ -469,7 +469,7 @@ extension CustomTextField : UITextFieldDelegate {
 }
 
 
-extension UIView {
+public extension UIView {
     class func getAllSubviewsOfType<T: UIView>(view: UIView) -> [T]
     {
         return view.subviews.flatMap { subView -> [T] in
@@ -487,7 +487,7 @@ extension UIView {
 }
 
 
-extension CustomTextField {
+public extension CustomTextField {
     enum Direction {
         case Left
         case Right
@@ -553,7 +553,7 @@ extension CustomTextField {
 }
 
 
-extension CustomTextField {
+public extension CustomTextField {
     func setCommonTextField(_ placeHolder:String) {
         self.initSetup()
         self.placeholder = placeHolder
@@ -572,7 +572,7 @@ extension CustomTextField {
 }
 
 
-extension CustomTextField {
+public extension CustomTextField {
     
     func getServerDate() -> String {
         return self.selectedDate.toString(DateFormatsList.Server_Date)

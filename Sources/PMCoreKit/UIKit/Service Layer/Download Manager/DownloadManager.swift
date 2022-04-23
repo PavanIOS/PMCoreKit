@@ -6,7 +6,7 @@ import Foundation
 import CoreGraphics
 
 
-class DownloadObject: NSObject {
+public class DownloadObject: NSObject {
     
     var completionBlock: DownloadManager.DownloadCompletionBlock?
     var progressBlock: DownloadManager.DownloadProgressBlock?
@@ -41,7 +41,7 @@ class DownloadObject: NSObject {
 }
 
 
-class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
+public class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
     static var shared = DownloadManager()
     
@@ -186,7 +186,7 @@ class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate
         }
     }
     
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         
         guard totalBytesExpectedToWrite > 0 else {
             debugPrint("Could not calculate progress as totalBytesExpectedToWrite is less than 0")
@@ -234,7 +234,7 @@ class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate
         })
     }
     
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         
         if let key = (downloadTask.originalRequest?.url?.absoluteString) {
             if let downloadModel = self.ongoingDownloads[key],let downloadStatus = downloadModel.downloadStatusBlock  {
@@ -256,7 +256,7 @@ class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate
         }
     }
     
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         
         if error != nil {
             if let err = error as NSError? {
@@ -293,7 +293,7 @@ class DownloadManager : NSObject, URLSessionDelegate, URLSessionDownloadDelegate
     
 }
 
-extension DownloadManager {
+public extension DownloadManager {
     
     func removeKeyFromDownload(key:String?) {
         if let finalKey = key {
@@ -355,7 +355,7 @@ extension DownloadManager {
     }
 }
 
-extension DownloadManager {
+public extension DownloadManager {
     
     
     func calculateFileSizeInUnit(_ contentLength : Int64) -> Float {

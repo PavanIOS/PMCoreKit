@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DateFormatsList {
+public class DateFormatsList {
     static let fullDay = "EEEE"
     static let fullMonth = "MMMM"
     static let fullYear = "YYYY"
@@ -41,7 +41,7 @@ class DateFormatsList {
 }
 
 
-class DateFormats {
+public class DateFormats {
     
 //    static let WEEK_DAY_DISPLAY = "EEE,dd,MMM yyyy"
 //    static let WEEK_DAY_DISPLAY_TIME = WEEK_DAY_DISPLAY + " " + "hh:mm a"
@@ -70,27 +70,27 @@ class DateFormats {
     }
 
     
-    static func getTimeStamp(date:Date) -> String {
+    public static func getTimeStamp(date:Date) -> String {
         let timeStamp = Int64(date.timeIntervalSince1970 * 1000)
         return String(timeStamp)
     }
-    static func getDateFromTimestamp(timestamp:Int64) -> String {
+    public static func getDateFromTimestamp(timestamp:Int64) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
         let serverDate = self.getServerDate(date: date, isTimeTrim: true)
         return serverDate
     }
     
-   static func getCurrentMillis()->Int64 {
+    public static func getCurrentMillis()->Int64 {
         return Int64(Date().timeIntervalSinceNow * 1000)
     }
  
     
 // convert an NSDate object to a timestamp string
-static func convertToTimestamp(date: Date) -> String {
+    public static func convertToTimestamp(date: Date) -> String {
     return String(Int64(date.timeIntervalSince1970 * 1000))
 }
 
-   static func getTimeFromServer(completionHandler:@escaping (_ getResDate: Date) -> Void){
+    public static func getTimeFromServer(completionHandler:@escaping (_ getResDate: Date) -> Void){
         let url = URL(string: "https://www.apple.com")
     let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
         if let httpResponse = response as? HTTPURLResponse {
@@ -111,7 +111,7 @@ static func convertToTimestamp(date: Date) -> String {
 }
 
 
-extension Date
+public extension Date
 {
     func toString(_ format:String ) -> String
     {
@@ -338,7 +338,7 @@ extension Date
     }
 }
 
-extension String {
+public extension String {
     
     func toDate(_ format:String = "yyyy/MM/dd HH:mm:ss")-> Date?{
           let dateFormatter = DateFormatter()

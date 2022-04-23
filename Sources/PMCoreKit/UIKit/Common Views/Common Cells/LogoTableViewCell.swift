@@ -12,7 +12,7 @@ protocol LogoTableViewCellDelegate : AnyObject {
     func didTapCompanyLogo()
 }
 
-class LogoTableViewCell: UITableViewCell {
+public class LogoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var companyLogoButton: CustomButton!
     @IBOutlet weak var versionLbl: CustomLabel!
@@ -22,13 +22,13 @@ class LogoTableViewCell: UITableViewCell {
     
     
     static let cellId = "LogoTableViewCell"
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.initCell()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

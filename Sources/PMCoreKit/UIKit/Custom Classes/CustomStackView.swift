@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 
 
-class CustomStackView : UIStackView {
+public class CustomStackView : UIStackView {
     
     @IBInspectable var inset:Bool = true {
         didSet {
@@ -63,7 +63,7 @@ class CustomStackView : UIStackView {
 }
 
 
-extension CustomStackView {
+public extension CustomStackView {
     
     func removeAllSubViews(){
         let subviews = self.arrangedSubviews

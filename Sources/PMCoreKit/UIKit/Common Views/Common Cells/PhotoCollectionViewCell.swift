@@ -8,13 +8,13 @@
 
 import UIKit
 
-class PhotoCollectionViewCell: UICollectionViewCell {
+public class PhotoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: CustomImageView!
     
     static let cellId = "PhotoCollectionViewCell"
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

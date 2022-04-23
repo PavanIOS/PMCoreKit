@@ -5,7 +5,7 @@
 
 import UIKit
 
-class PopOverViewController : UITableViewController {
+public class PopOverViewController : UITableViewController {
     
     
     
@@ -20,25 +20,25 @@ class PopOverViewController : UITableViewController {
         
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
         self.tableView.layoutIfNeeded()
         adjustPopOverSize()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presentingViewController?.view.alpha = 0.8
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.presentingViewController?.view.alpha = 1.0
     }
@@ -59,11 +59,11 @@ class PopOverViewController : UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return autoCompleteData.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         let item = self.autoCompleteData[indexPath.row]
         
@@ -85,7 +85,7 @@ class PopOverViewController : UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let item = self.autoCompleteData[indexPath.row]
         

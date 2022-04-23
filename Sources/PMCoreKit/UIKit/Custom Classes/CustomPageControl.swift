@@ -2,7 +2,7 @@
 
 import UIKit
 
-class CustomPageControl: UIPageControl {
+public class CustomPageControl: UIPageControl {
     
     let activeImage = ImageNames.emptyImage
     let inactiveImage = ImageNames.emptyImage
@@ -15,7 +15,7 @@ class CustomPageControl: UIPageControl {
            }
        }
     
-    override var numberOfPages: Int {
+    public override var numberOfPages: Int {
         didSet {
             if updateFrameSize {
                 updateSize()
@@ -24,7 +24,7 @@ class CustomPageControl: UIPageControl {
     }
     
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         self.autoresizingMask = [.flexibleRightMargin,.flexibleLeftMargin]

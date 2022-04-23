@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomDetailTableViewCell: CustomTableViewCell {
+public class CustomDetailTableViewCell: CustomTableViewCell {
     
     @IBOutlet weak var stackView: CustomStackView!
     @IBOutlet weak var textLbl: CustomLabel!
@@ -19,14 +19,14 @@ class CustomDetailTableViewCell: CustomTableViewCell {
     
     var spacing : UIEdgeInsets? = nil
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         initCell()
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
         if let spacer = spacing {
@@ -35,7 +35,7 @@ class CustomDetailTableViewCell: CustomTableViewCell {
     }
     
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

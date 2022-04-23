@@ -127,7 +127,7 @@ public class Spinner {
 
             let viewLayer = spinnerContainerView!.layer
             let animationRectsize = CGSize(width: 37, height: 37)
-            SKActivityIndicatorStyle.createSpinner(in: viewLayer, size: animationRectsize, color: spinnerColor, style: activityIndicatorStyle)
+            SKActivityIndicatorStyle.shared.createSpinner(in: viewLayer, size: animationRectsize, color: spinnerColor, style: activityIndicatorStyle)
         }
 
         if spinnerContainerView?.superview == nil {
@@ -315,8 +315,8 @@ public enum ActivityIndicatorStyle {
     case spinningHalfCircles
 }
 
-class SKActivityIndicatorStyle: NSObject {
-    static let shared = SKActivityIndicatorStyle()
+public class SKActivityIndicatorStyle: NSObject {
+    public static let shared = SKActivityIndicatorStyle()
      var activityView = UIActivityIndicatorView()
     
     private override init() {}
@@ -328,23 +328,23 @@ class SKActivityIndicatorStyle: NSObject {
      - parameter color : Color of spinner, default is "lightGray"
      - parameter style : Spinner style specified by user, default style is "defaultSpinner"
      */
-    class func createSpinner(in layer: CALayer, size: CGSize, color: UIColor, style: ActivityIndicatorStyle) {
+    public func createSpinner(in layer: CALayer, size: CGSize, color: UIColor, style: ActivityIndicatorStyle) {
         switch style {
             
         case .defaultIndicator:
-            shared.createDefaultActivityIndicator(in: layer, size: size, color: color)
+            SKActivityIndicatorStyle.shared.createDefaultActivityIndicator(in: layer, size: size, color: color)
             
         case .defaultSpinner:
-            shared.createCircularLineFadingActivityIndicator(in: layer, size: size, color: color)
+            SKActivityIndicatorStyle.shared.createCircularLineFadingActivityIndicator(in: layer, size: size, color: color)
 
         case .spinningFadeCircle:
-            shared.createCircularSpinningBallWithFadingActivityIndicator(in: layer, size: size, color: color)
+            SKActivityIndicatorStyle.shared.createCircularSpinningBallWithFadingActivityIndicator(in: layer, size: size, color: color)
 
         case .spinningCircle:
-            shared.createCircularSpinninBallActivityIndicator(in: layer, size: size, color: color)
+            SKActivityIndicatorStyle.shared.createCircularSpinninBallActivityIndicator(in: layer, size: size, color: color)
 
         case .spinningHalfCircles:
-            shared.createTwoHalfCircleSpinningActivityIndicator(in: layer, size: size, color: color)
+            SKActivityIndicatorStyle.shared.createTwoHalfCircleSpinningActivityIndicator(in: layer, size: size, color: color)
         }
     }
 

@@ -1,4 +1,4 @@
-extension OrderedDictionary: CustomStringConvertible {
+ extension OrderedDictionary: CustomStringConvertible {
     
     /// A textual representation of the ordered dictionary.
     public var description: String {
@@ -7,7 +7,7 @@ extension OrderedDictionary: CustomStringConvertible {
     
 }
 
-extension OrderedDictionary: CustomDebugStringConvertible {
+ extension OrderedDictionary: CustomDebugStringConvertible {
     
     /// A textual representation of the ordered dictionary, suitable for debugging.
     public var debugDescription: String {
@@ -16,7 +16,7 @@ extension OrderedDictionary: CustomDebugStringConvertible {
     
 }
 
-extension OrderedDictionary {
+public extension OrderedDictionary {
     
     fileprivate func makeDescription(debug: Bool) -> String {
         // The implementation of the description is inspired by zwaldowski's implementation of the

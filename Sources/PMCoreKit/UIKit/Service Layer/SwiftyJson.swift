@@ -1446,7 +1446,7 @@ public enum writingOptionsKeys {
 
 
 //MARK: - Extension Methods
-extension JSON {
+public extension JSON {
     
     private func isContainsKey(jsonObject:JSON,key:String)->Bool {
         let json: JSON = jsonObject

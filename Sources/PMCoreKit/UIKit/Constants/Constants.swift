@@ -5,14 +5,14 @@ import Foundation
 
 
 
-class Keys {
+public class APIKeys {
     static let GoogleMapKey = "AIzaSyCqlxJEVnSMDQodgVH1IYZnZZUv3JoOpls"
 }
 
 
 
 
-class Defaults {
+public class Defaults {
     static let USER_NAME = "UserName"
     static let PASSWORD = "Password"
     static let ON_BOARDING = "Onboarding"
@@ -24,12 +24,12 @@ class Defaults {
 }
 
 
-class ContentTypes {
+public class ContentTypes {
     static let TEXT = "Text"
     static let FILE = "File"
 }
 
-class FileTypes {
+public class FileTypes {
     static let PLAIN = "plain"
     static let IMAGE = "image"
     static let AUDIO = "audio"
@@ -40,33 +40,33 @@ class FileTypes {
 
 
 
-class AppInfo {
-    static let BUNDLE_ID = Bundle.main.bundleIdentifier ?? "com.gpinfo.Regent"
+public class AppInfo {
+    static let BUNDLE_ID = Bundle.main.bundleIdentifier ?? ""
 }
 
 
-class Config {
+public class Config {
     static let companyUrl = "http://www.gpinfotech.com"
 }
 
 
-class ConstantType {
-    static let kemptyPassword = "Please enter password"
-    static let kEmptyUserName = "Please enter userName"
-    static let kValidDetails = "Please enter Valid Credentails"
-    static let kNetworkCheck = "Please Check your Network Connection"
-    static let kNetworkTitle = "No Internet Connection"
-    static let kServerAlert = "server is not responding"
-    static let kNetworkAlert = "Make sure your device is connected to the internet."
-    static let kSecurityEntity  = "SecurityEntity"
-    static let kMainEntity = "MainEntity"
-    static let kStatus = "Status"
-    static let kComments = "Comments"
-    static let kInvalidLogin = "Please enter valid credentials"
-    static let kOldPasswordTitle = "Incorrect password"
-    static let kIncorrectpassword = "This password is incorrect."
-    static let kPasswordResetAlert = "Password reset successfully"
-    static let kSamePassword = "Make sure new password should not same as old password"
-    static let kIncorrectOldPassword = "Old password is incorrect."
+public class ConstantType {
+    public static let kemptyPassword = "Please enter password"
+    public static let kEmptyUserName = "Please enter userName"
+    public static let kValidDetails = "Please enter Valid Credentails"
+    public static let kNetworkCheck = "Please Check your Network Connection"
+    public static let kNetworkTitle = "No Internet Connection"
+    public static let kServerAlert = "server is not responding"
+    public static let kNetworkAlert = "Make sure your device is connected to the internet."
+    public static let kSecurityEntity  = "SecurityEntity"
+    public static let kMainEntity = "MainEntity"
+    public static let kStatus = "Status"
+    public static let kComments = "Comments"
+    public static let kInvalidLogin = "Please enter valid credentials"
+    public static let kOldPasswordTitle = "Incorrect password"
+    public static let kIncorrectpassword = "This password is incorrect."
+    public static let kPasswordResetAlert = "Password reset successfully"
+    public static let kSamePassword = "Make sure new password should not same as old password"
+    public static let kIncorrectOldPassword = "Old password is incorrect."
     
 }

@@ -7,7 +7,7 @@ import Foundation
 
 
 
-class DelegateParser {
+public class DelegateParser {
     var section = 0
     var row = 0
     var item = 0
@@ -31,7 +31,7 @@ protocol CustomCellParserDelegate : AnyObject {
     
 }
 
-extension CustomCellParserDelegate {
+ extension CustomCellParserDelegate {
     func didChangeValue(_ parser:DelegateParser) {
         
     }

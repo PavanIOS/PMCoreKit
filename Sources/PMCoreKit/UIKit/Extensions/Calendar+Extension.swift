@@ -10,7 +10,7 @@ import Foundation
 
 
 
-extension Calendar {
+public extension Calendar {
     
     var currentWeekNumber : Int {
         return self.component(.weekOfYear, from: Date.init(timeIntervalSinceNow: 0))

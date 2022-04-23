@@ -1,9 +1,9 @@
 
 import UIKit
 
-class CustomCollectionViewCell: UICollectionViewCell {
+public class CustomCollectionViewCell: UICollectionViewCell {
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

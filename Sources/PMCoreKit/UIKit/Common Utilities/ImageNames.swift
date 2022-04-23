@@ -11,7 +11,7 @@ import UIKit
 import CoreGraphics
 import Accelerate
 
-class ImageNames {
+public class ImageNames {
     
     static func getImage(_ name:String) -> UIImage {
         return UIImage(named:name) ?? UIImage()
@@ -50,7 +50,7 @@ class ImageNames {
     
 }
 
-extension ImageNames {
+public extension ImageNames {
    
     
     static let home = "home_icon".image()
@@ -158,7 +158,7 @@ extension ImageNames {
 
 
 
-extension UIImage {
+public extension UIImage {
     
     func maskWithColor(_ color: UIColor) -> UIImage {
         
@@ -193,7 +193,7 @@ extension UIImage {
         
     }
     
-    class func pixelImageWithColor(color: UIColor) -> UIImage {
+    public class func pixelImageWithColor(color: UIColor) -> UIImage {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.5)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -243,7 +243,7 @@ extension UIImage {
 
 
 
-extension String {
+public extension String {
     func image() -> UIImage {
         return UIImage(named:self) ?? UIImage()
     }

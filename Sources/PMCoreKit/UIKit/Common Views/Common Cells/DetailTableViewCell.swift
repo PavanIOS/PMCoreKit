@@ -7,17 +7,17 @@
 
 import UIKit
 
-class DetailTableViewCell: UITableViewCell {
+public class DetailTableViewCell: UITableViewCell {
     
     
     static let cellId = "DetailTableViewCell"
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

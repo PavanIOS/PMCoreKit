@@ -2,7 +2,7 @@
 
 import UIKit
 
-class CustomButton: TextImageButton {
+public class CustomButton: TextImageButton {
     
     
     var isAnimating: Bool = false
@@ -104,7 +104,7 @@ class CustomButton: TextImageButton {
     var animateEnabled = true
     var id = ""
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         initSetup()
     }
     
@@ -210,7 +210,7 @@ class CustomButton: TextImageButton {
     
 }
 
-extension CustomButton {
+public extension CustomButton {
     
     private func setupSendButton() {
         addSubview(activityView)
@@ -247,7 +247,7 @@ extension CustomButton {
 
 
 
-class TextImageButton: UIButton {
+public class TextImageButton: UIButton {
     
     /// Represents horizontal side for the imagePosition attribute
     enum Side: Int {
@@ -361,7 +361,7 @@ class TextImageButton: UIButton {
 }
 
 
-extension UIEdgeInsets {
+public extension UIEdgeInsets {
     
     func adjust(left: CGFloat, right: CGFloat) -> UIEdgeInsets {
         var edgeInsets = self
@@ -374,7 +374,7 @@ extension UIEdgeInsets {
 }
 
 
-extension CustomButton {
+public extension CustomButton {
     
     func commonButton(_ text:String,_ color:UIColor) {
         self.buttonTitle = text

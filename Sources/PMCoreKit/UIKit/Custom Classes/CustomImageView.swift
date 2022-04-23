@@ -39,7 +39,7 @@ public class CustomImageView: UIImageView {
 
 
 
-extension UIImageView {
+public extension UIImageView {
     
     
     func load(_ urlStr:String,_ placeHolder:UIImage) {
@@ -109,7 +109,7 @@ extension UIImageView {
 }
 
 //MARK: UIImage
-extension UIImage {
+public extension UIImage {
     
     func scaleToFit(in size: CGSize) -> UIImage? {
         var ratio = max(size.width / self.size.width, size.height / self.size.height)
@@ -134,7 +134,7 @@ extension UIImage {
 
 
 
-extension UIView {
+public extension UIView {
     static let loadingViewTag = 1938123987
     static let imageViewTag = 1938123988
     
@@ -197,7 +197,7 @@ extension UIView {
 
 
 
-extension UIImageView {
+public extension UIImageView {
     func setImage(_ filePath:String,_ placeHolder:UIImage = UIImage()){
         #if canImport(SDWebImage)
         self.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -213,13 +213,13 @@ extension UIImageView {
         self.sd_setImage(with: filePath.toUrl) { (image1, error, imageCacheType, imageUrl) in
             completion(image1)
         }
-        #else
-        do {
-            let imageData = try Data(contentsOf: filePath.toUrl)
-            return completion(UIImage(data: imageData))
-        } catch {
-            print("Error loading image : \(error)")
-        }
+//        #else
+//        do {
+//            let imageData = try Data(contentsOf: filePath.toUrl)
+//            return completion(UIImage(data: imageData))
+//        } catch {
+//            print("Error loading image : \(error)")
+//        }
         #endif
     }
 }

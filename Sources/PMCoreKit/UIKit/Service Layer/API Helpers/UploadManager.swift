@@ -197,7 +197,7 @@ public class UploadManager {
 //    }
 //}
 
-extension UploadManager {
+public extension UploadManager {
     
     func generateBoundaryString() -> String {
         return "===\(DateFormats.getCurrentMillis())==="

@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class MyAddressModel {
+public class MyAddressModel {
     var name = ""
     var address1 = ""
     var address2 = ""
@@ -47,7 +47,7 @@ protocol LocationServiceDelegate {
     func tracingExitedRegion(currentLocation: CLRegion)
 }
 
-class LocationService: NSObject {
+public class LocationService: NSObject {
     var locationManager = CLLocationManager()
     var lastLocation: CLLocation?
     var addressModel : MyAddressModel?
@@ -121,11 +121,11 @@ class LocationService: NSObject {
 }
 
 extension LocationService : CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             return
         }
@@ -135,14 +135,14 @@ extension LocationService : CLLocationManagerDelegate{
         updateLocation(currentLocation: location)
     }
     
-    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion){
+    public func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion){
         if Device.isDebuggerAttached() {
             print("The monitored regions are: \(manager.monitoredRegions)")
         }
     }
     
     
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+    public func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("Entered")
         if let region = region as? CLCircularRegion {
             // your logic to handle region-entered notification
@@ -150,7 +150,7 @@ extension LocationService : CLLocationManagerDelegate{
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+    public func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("Exited")
         if let region = region as? CLCircularRegion {
             // your logic to handle region-entered notification
@@ -214,7 +214,7 @@ extension LocationService : CLLocationManagerDelegate{
 
 
 //MARK: Calculate Distance
-extension LocationService {
+public extension LocationService {
     
     func deg2rad(deg:Double) -> Double {
         return deg * Double.pi / 180

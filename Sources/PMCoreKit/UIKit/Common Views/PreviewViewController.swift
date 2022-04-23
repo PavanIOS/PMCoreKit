@@ -8,7 +8,7 @@
 import UIKit
 import QuickLook
 
-class PreviewViewController: QLPreviewController {
+public class PreviewViewController: QLPreviewController {
     
       var previewUrls = [URL]()
     
@@ -20,7 +20,7 @@ class PreviewViewController: QLPreviewController {
       }
       
       
-      override func viewDidLoad() {
+    public override func viewDidLoad() {
           super.viewDidLoad()
           
           // Do any additional setup after loading the view.
@@ -33,18 +33,8 @@ class PreviewViewController: QLPreviewController {
           }
       }
       
-      public func setBackButtonTitle(text:String? = nil,color:UIColor? = nil){
-          let backButton = UIBarButtonItem()
-          if text != nil {
-              backButton.title = text
-          }
-          if color != nil {
-              backButton.tintColor = color
-          }
-          self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-      }
-      
-      override func viewDidAppear(_ animated: Bool) {
+     
+    public override func viewDidAppear(_ animated: Bool) {
              super.viewDidAppear(animated)
            if !isModal() {
                  let textAttributes = [NSAttributedString.Key.foregroundColor:Colors.black]
@@ -53,7 +43,7 @@ class PreviewViewController: QLPreviewController {
           }
          }
 
-         override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
              super.viewWillDisappear(animated)
            if !isModal() {
              let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -83,11 +73,11 @@ class PreviewViewController: QLPreviewController {
 }
 
 extension PreviewViewController : QLPreviewControllerDataSource {
-    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+    public func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
         return previewUrls.count
     }
     
-    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+    public func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
         let currentItem = previewUrls[index]
         return currentItem as QLPreviewItem
     }

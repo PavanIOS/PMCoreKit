@@ -19,7 +19,7 @@ import UIKit
     let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: controller)
     ```
   */
-class AlwaysPresentAsPopover : NSObject, UIPopoverPresentationControllerDelegate {
+public class AlwaysPresentAsPopover : NSObject, UIPopoverPresentationControllerDelegate {
     
     // `sharedInstance` because the delegate property is weak - the delegate instance needs to be retained.
     private static let sharedInstance = AlwaysPresentAsPopover()
@@ -28,7 +28,7 @@ class AlwaysPresentAsPopover : NSObject, UIPopoverPresentationControllerDelegate
         super.init()
     }
     
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
     

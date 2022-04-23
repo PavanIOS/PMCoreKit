@@ -326,7 +326,7 @@ public class AttachmentHandler: NSObject{
 }
 
 //MARK: - IMAGE PICKER DELEGATE
-extension AttachmentHandler: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+ extension AttachmentHandler: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -524,7 +524,7 @@ extension AttachmentHandler: UIImagePickerControllerDelegate, UINavigationContro
 }
 
 //MARK: FILE IMPORT DELEGATE
-extension AttachmentHandler:  UIDocumentPickerDelegate{
+ extension AttachmentHandler:  UIDocumentPickerDelegate{
     
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         currentVC?.dismiss(animated: true, completion: nil)
@@ -540,7 +540,7 @@ extension AttachmentHandler:  UIDocumentPickerDelegate{
 }
 
 // MARK: DSPhoto Editor SDK
-//extension AttachmentHandler : DSPhotoEditorViewControllerDelegate {
+//public extension AttachmentHandler : DSPhotoEditorViewControllerDelegate {
 //
 //    func compressAndEditImage(_ selectedImage:UIImage,_ imageUrl:URL,_ picker:UIImagePickerController?) {
 //
@@ -604,7 +604,7 @@ extension AttachmentHandler:  UIDocumentPickerDelegate{
 //}
 
 
-extension AttachmentHandler {
+public extension AttachmentHandler {
     
     func compressImage(_ image: UIImage) -> UIImage? {
         var actualHeight = Float(image.size.height )
@@ -646,7 +646,7 @@ extension AttachmentHandler {
 }
 
 
-extension String {
+public extension String {
     func getNumbers() -> [NSNumber] {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -667,7 +667,7 @@ extension String {
     }
 }
 
-extension UIImage {
+public extension UIImage {
     func getFileSizeInfo(allowedUnits: ByteCountFormatter.Units = .useMB,
                           countStyle: ByteCountFormatter.CountStyle = .file) -> String? {
          // https://developer.apple.com/documentation/foundation/bytecountformatter
