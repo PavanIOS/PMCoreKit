@@ -9,7 +9,7 @@ public struct PMCoreKit {
 
 public class SampleCoreKit {
     
-    public static let testData = "This is PMCoreKit"
+    public static let testData = "This is PMCoreKit "
     
     public static let welcomeMessage = "This is PMCoreKit"
 }
