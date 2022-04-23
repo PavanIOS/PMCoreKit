@@ -25,4 +25,5 @@ let package = Package(
             name: "PMCoreKitTests",
             dependencies: ["PMCoreKit"]),
     ]
+    
 )

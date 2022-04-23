@@ -4,3 +4,10 @@ public struct PMCoreKit {
     public init() {
     }
 }
+
+
+
+public class SampleCoreKit {
+    
+    public static let testData = "Test"
+}
