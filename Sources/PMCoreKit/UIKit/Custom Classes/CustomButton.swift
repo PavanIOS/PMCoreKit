@@ -168,7 +168,7 @@ public class CustomButton: TextImageButton {
             cgUIColor.append(color.cgColor)
         }
         gradient.frame = self.layer.bounds
-        gradient.UIColor = cgUIColor
+        gradient.colors = cgUIColor
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = horizontal ? CGPoint(x: 1, y: 0) : CGPoint(x: 0, y: 1)
         gradient.cornerRadius = self.cornerRadius

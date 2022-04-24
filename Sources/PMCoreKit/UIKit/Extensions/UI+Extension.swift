@@ -126,7 +126,7 @@ public extension UIView {
     func fadeView(style: UIViewFadeStyle = .bottom, percentage: Double = 0.07) {
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.UIColor = [UIColor.white.cgColor, UIColor.clear.cgColor]
+        gradient.colors = [UIColor.white.cgColor, UIColor.clear.cgColor]
         
         let startLocation = percentage
         let endLocation = 1 - percentage
@@ -141,7 +141,7 @@ public extension UIView {
         case .vertical:
             gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
             gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
-            gradient.UIColor = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
+            gradient.colors = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
             gradient.locations = [0.0, startLocation, endLocation, 1.0] as [NSNumber]
             
         case .left:
@@ -153,7 +153,7 @@ public extension UIView {
         case .horizontal:
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-            gradient.UIColor = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
+            gradient.colors = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
             gradient.locations = [0.0, startLocation, endLocation, 1.0] as [NSNumber]
         }
         
@@ -180,7 +180,7 @@ public extension UIView {
         let gradient = CAGradientLayer()
         
         gradient.frame = self.bounds
-        gradient.UIColor = [startColor.cgColor, endColor.cgColor]
+        gradient.colors = [startColor.cgColor, endColor.cgColor]
         self.layer.insertSublayer(gradient, at: 0)
     }
     
@@ -192,7 +192,7 @@ public extension UIView {
         for color in UIColor {
             cgUIColor.append(color.cgColor)
         }
-        gradientLayer.UIColor = cgUIColor
+        gradientLayer.colors = cgUIColor
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = horizontal ? CGPoint(x: 1, y: 0) : CGPoint(x: 0, y: 1)
         gradientLayer.cornerRadius = self.layer.cornerRadius
@@ -208,7 +208,7 @@ public extension UIView {
 //            cgUIColor.append(color.cgColor)
 //        }
 //        gradient.frame = self.layer.bounds
-//        gradient.UIColor = cgUIColor
+//        gradient.colors = cgUIColor
 //        gradient.startPoint = CGPoint(x: 0, y: 0)
 //        gradient.endPoint = horizontal ? CGPoint(x: 1, y: 0) : CGPoint(x: 0, y: 1)
 //        gradient.cornerRadius = self.cornerRadius
