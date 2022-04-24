@@ -69,16 +69,16 @@ extension UIColor {
     }
     
     // Common
-    public static let navBarColor = "f7f7f7".color()
-    public static let def_blue = "007aff".color()
-    public static let unSelected_gray = "DDDDDD".color()
-    public static let disableColor = "F5F5F5".color()
+    public static let navBarColor = "f7f7f7".toUIcolor()
+    public static let def_blue = "007aff".toUIcolor()
+    public static let unSelected_gray = "DDDDDD".toUIcolor()
+    public static let disableColor = "F5F5F5".toUIcolor()
     
-    public static let gpLogoColor = "021350".color()
+    public static let gpLogoColor = "021350".toUIcolor()
     
-    public static let startGradient = "CEDFFF".color()
-    public static let endGradient = "E6EEFF".color()
-    public static let profileBg = "eff0f0".color()
+    public static let startGradient = "CEDFFF".toUIcolor()
+    public static let endGradient = "E6EEFF".toUIcolor()
+    public static let profileBg = "eff0f0".toUIcolor()
     
 }
 
