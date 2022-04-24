@@ -38,7 +38,7 @@ public class ImageNames {
     static let radiobutton = "radiobutton".image()
     static let radiobuttonOff = "radiobuttonOff".image()
     static let logout = "logout".image()
-    static let logout = "Up Arrow".image()
+    static let Up_Arrow = "Up Arrow".image()
     
 }
 

@@ -207,10 +207,10 @@ public class CustomTextField: UITextField {
     @objc func showPasswordAction(sender:CustomButton){
         if self.isSecureTextEntry == true{
             self.isSecureTextEntry = false
-            sender.setImage(ImageNames.showPassword, for: .normal)
+            sender.setImage(SystemImages.eye_visible.toUIImage(), for: .normal)
         }else{
             self.isSecureTextEntry = true
-            sender.setImage(ImageNames.hidePassword, for: .normal)
+            sender.setImage(SystemImages.eye_hide.toUIImage(), for: .normal)
         }
     }
 
@@ -556,7 +556,7 @@ public extension CustomTextField {
     }
     
     func setDropdownArrow(){
-        self.withImage(.Right, ImageNames.expand, UIColor.separator)
+        self.withImage(.Right, SystemImages.chevron_down.toUIImage(), UIColor.separator)
     }
     
     func setRightSideImage(_ image:UIImage){

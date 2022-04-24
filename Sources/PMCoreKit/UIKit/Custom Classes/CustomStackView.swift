@@ -240,11 +240,11 @@ public extension CustomStackView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         textField.isMandatory = false
-        textField.withImage(.Right, UIImage(system: .arrow_down), UIColor.gray)
+        textField.withImage(.Right, SystemImages.arrow_down.toUIImage(), UIColor.gray)
         
        // textField.textInputDelegate = self
         
-        btn.addRightImage(UIImage(system: .upload_icloud), .zero, .gray)
+        btn.addRightImage(SystemImages.upload_icloud.toUIImage(), .zero, .gray)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.heightAnchor.constraint(equalToConstant: 35).isActive = true
         btn.widthAnchor.constraint(equalToConstant: 35).isActive = true
