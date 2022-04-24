@@ -18,7 +18,7 @@ let package = Package(
         .package(url: "https://github.com/SDWebImage/SDWebImage.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/rebeloper/AlertKit", .upToNextMajor(from: "0.2.0")),
         .package(url: "https://github.com/elai950/AlertToast", .upToNextMajor(from: "1.0.0")),
-        .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", .upToNextMajor(from: "6.0.0")),
+        .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", .upToNextMajor(from: "6.0.0"))
         
     ],
     
