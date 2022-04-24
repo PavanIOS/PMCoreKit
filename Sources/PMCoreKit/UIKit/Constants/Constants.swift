@@ -42,9 +42,7 @@ public class AppInfo {
 public class Config {
     static let companyUrl = "http://www.gpinfotech.com"
     
-    static APIKeys {
-        static let cool = ""
-    }
+    
 }
 
 
