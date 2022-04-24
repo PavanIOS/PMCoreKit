@@ -152,14 +152,7 @@ public class CustomTextField: UITextField {
     //        layer.addSublayer(bottomLine)
     //    }
     
-    private func setupPlaceHolderFont(fontSize:CGFloat) {
-        let placeHolder1 = NSMutableAttributedString(string:self.placeholder ?? "", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: fontSize)])
-        self.attributedPlaceholder = placeHolder1
-    }
-    
-    private func setupPlaceHolderColor(color:UIColor){
-        self.attributedPlaceholder =  NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color])
-    }
+   
     
     func setupBottomBorder(_ width:CGFloat,_ color:UIColor) {
         self.bottomLayerWidth = width
@@ -572,7 +565,18 @@ public extension CustomTextField {
 }
 
 
-public extension CustomTextField {
+
+
+
+public extension UITextField {
+     func setupPlaceHolderFont(fontSize:CGFloat) {
+        let placeHolder1 = NSMutableAttributedString(string:self.placeholder ?? "", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: fontSize)])
+        self.attributedPlaceholder = placeHolder1
+    }
+    
+     func setupPlaceHolderColor(color:UIColor){
+        self.attributedPlaceholder =  NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
     
     func getServerDate() -> String {
         return self.selectedDate.toString(DateFormatsList.Server_Date)
@@ -582,5 +586,3 @@ public extension CustomTextField {
         return self.selectedDate.toString(DateFormatsList.Display_Date)
     }
 }
-
-

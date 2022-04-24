@@ -17,15 +17,15 @@ public class ImageNames {
         return UIImage(named:name) ?? UIImage()
     }
     
-    static func getSystemImage(_ name:String) -> UIImage? {
-        if #available(iOS 13.0, *) {
-            return UIImage(systemName: name)
-        } else {
-            return nil
-        }
-    }
-    
-    
+//    static func getSystemImage(_ name:String) -> UIImage? {
+//        if #available(iOS 13.0, *) {
+//            return UIImage(systemName: name)
+//        } else {
+//            return nil
+//        }
+//    }
+//
+//
     
     // Common
     static let emptyImage = UIImage()
@@ -43,113 +43,10 @@ public class ImageNames {
     static let mandatory = "mandatory".image()
     static let notifications = "notifications".image()
     static let settings = "settings".image()
-    static let forgotPassword = getImage("forgotPassword")
+    static let forgotPassword = "forgotPassword".image()
     static let radiobutton = "radiobutton".image()
     static let radiobuttonOff = "radiobuttonOff".image()
     static let logout = "logout".image()
-    
-}
-
-public extension ImageNames {
-   
-    
-    static let home = "home_icon".image()
-    
-    static let IdVerify = getImage("IdVerify")
-    static let report = getImage("report")
-    
-    static let upload = getImage("upload")
-    static let uploadNew = getImage("uploadNew")
-    
-    
-    
-    static let rightArrowLine = "rightArrowLine".image()
-    
-    // Home
-    static let document = getImage("document")
-    static let ER = getImage("ER")
-    static let news = getImage("news")
-    static let NOT = getImage("NOT")
-    static let OSA = getImage("OSA")
-    static let PRA = getImage("PRA")
-    static let RAQ = getImage("RAQ")
-    static let RQ = getImage("RQ")
-    
-    //Logo
-    static let gpit_logo = getImage("gpit_logo")
-    static let intro_image_1 = getImage("intro_image_1")
-    static let intro_image_2 = getImage("intro_image_2")
-    static let login_bg = getImage("login_bg")
-    static let mancosa_new_logo = getImage("mancosa_new_logo")
-    
-    
-    //Notifications
-    static let Exams = getImage("Exams")
-    static let finance = getImage("finance")
-    static let general = getImage("general")
-    static let registrations = getImage("registrations")
-    static let workshops = getImage("workshops")
-    static let assignments = getImage("assignments")
-    
-    
-    static let Queries = "Queries".image()
-    static let ExamModule = "ExamModule".image()
-    static let seat = "seat".image()
-    
-    
-    // Messaging
-    static let checkmark = "checkmark".image()
-    static let double_tick = "double_tick".image()
-    static let download = "download".image()
-    static let square_clock = "square_clock".image()
-    static let double_down = "double_down".image()
-    static let chat = "chat".image()
-    static let ic_action_attach_file = "ic_action_attach_file".image()
-    
-    
-    
-    //Auth module
-    static let verified = "verified".image()
-    static let ic_action_camera = "ic_action_camera".image()
-    static let right_pointing_icon = "right_pointing_icon".image()
-    static let galleryPlaceHolder = "GalleryPlaceHolder".image()
-    
-    
-    
-    //Version 1.0
-    static let assessment = "assessment".image()
-    static let documents = "documents".image()
-    static let graduation = "graduation".image()
-    static let graphic = "graphic".image()
-    static let home_icon = "home_icon".image()
-    static let news_icon = "news_icon".image()
-    static let notifications_icon = "notifications_icon".image()
-    static let online = "online".image()
-    static let profile = "profile".image()
-    static let raised = "raised".image()
-    static let settings_icon = "settings_icon".image()
-    static let tile1 = "tile1".image()
-    static let tile2 = "tile2".image()
-    static let tile3 = "tile3".image()
-    static let tile4 = "tile4".image()
-    static let tile5 = "tile5".image()
-    static let tile6 = "tile6".image()
-    
-    
-    static let aboutapp = "aboutapp".image()
-    static let help = "help".image()
-    static let language = "language".image()
-    static let light = "light".image()
-    static let notifications_ic = "notifications_ic".image()
-    static let password = "password".image()
-    static let pay = "pay".image()
-    static let university = "university".image()
-    
-    static let ic_action_event = "ic_action_event".image()
-    static let ic_action_document = "ic_action_document".image()
-    static let delete = "delete".image()
-    static let add = "add".image()
-    static let icon_delete = "icon_delete".image()
     
 }
 

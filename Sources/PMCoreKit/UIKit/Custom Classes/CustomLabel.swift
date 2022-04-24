@@ -42,16 +42,7 @@ public class CustomLabel: UILabel {
     public var iconPadding: CGFloat = 0
     
     
-    var borderWidth : CGFloat = 1 {
-        didSet {
-            self.setupBorderWidth(width: borderWidth)
-        }
-    }
-    var borderColor : UIColor = Colors.lightGray {
-        didSet {
-            self.setupBorderColor(color: borderColor)
-        }
-    }
+   
     
     
     open override func awakeFromNib() {
@@ -59,15 +50,7 @@ public class CustomLabel: UILabel {
     }
     
     
-    func underline() {
-        if let textString = self.text {
-            let attributedString = NSMutableAttributedString(string: textString)
-            attributedString.addAttribute(NSAttributedString.Key.underlineStyle,
-                                          value: NSUnderlineStyle.single.rawValue,
-                                          range: NSRange(location: 0, length: textString.count))
-            self.attributedText = attributedString
-        }
-    }
+  
     
     func updatebadgeCount(value:Int){
         let fontSize = self.font.pointSize
@@ -88,23 +71,10 @@ public class CustomLabel: UILabel {
         }
     }
     
-    private func setupBorderWidth(width:CGFloat){
-        self.layer.borderWidth = width
-    }
-    
-    private func setupBorderColor(color:UIColor){
-        self.layer.borderColor = color.cgColor
-    }
+   
     
     
-    
-    func setMandatoryIcon() {
-        if let text = self.text {
-            let color = self.textColor ?? .black
-            let font = self.font ?? CustomFonts.getRegularFont(.NORMAL)
-            self.attributedText = NSMutableAttributedString().text(text, color,font).icon(image: ImageNames.mandatory, width: 8, height: 8)
-        }
-    }
+  
 }
 
 public extension CustomLabel {
@@ -200,7 +170,36 @@ public extension CustomLabel {
 
 
 
-public class BadgeLabel : CustomLabel {
+
+
+
+extension UILabel {
+    
+    func underline() {
+        if let textString = self.text {
+            let attributedString = NSMutableAttributedString(string: textString)
+            attributedString.addAttribute(NSAttributedString.Key.underlineStyle,
+                                          value: NSUnderlineStyle.single.rawValue,
+                                          range: NSRange(location: 0, length: textString.count))
+            self.attributedText = attributedString
+        }
+    }
+    
+     func setupBorderWidth(width:CGFloat){
+        self.layer.borderWidth = width
+    }
+    
+     func setupBorderColor(color:UIColor){
+        self.layer.borderColor = color.cgColor
+    }
+    
+    func setMandatoryIcon() {
+        if let text = self.text {
+            let color = self.textColor ?? .black
+            let font = self.font ?? CustomFonts.getRegularFont(.NORMAL)
+            self.attributedText = NSMutableAttributedString().text(text, color,font).icon(image: ImageNames.mandatory, width: 8, height: 8)
+        }
+    }
     
     
     func updateBadgeValue(count:Int) {
@@ -231,3 +230,5 @@ public class BadgeLabel : CustomLabel {
     }
     
 }
+
+

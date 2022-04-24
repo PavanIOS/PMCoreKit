@@ -15,6 +15,11 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/SDWebImage/SDWebImage.git", .upToNextMajor(from: "5.0.0")),
+        .package(url: "https://github.com/rebeloper/AlertKit", .upToNextMajor(from: "0.2.0")),
+        .package(url: "https://github.com/elai950/AlertToast", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", .upToNextMajor(from: "6.0.0")),
+        
     ],
     
     targets: [

@@ -4,8 +4,8 @@ import UIKit
 
 public class CustomPageControl: UIPageControl {
     
-    let activeImage = ImageNames.emptyImage
-    let inactiveImage = ImageNames.emptyImage
+    let activeImage = UIImage()
+    let inactiveImage = UIImage()
     
     var updateFrameSize = false
     
@@ -86,6 +86,17 @@ public class CustomPageControl: UIPageControl {
         return dot
     }
     
+    
+    
+}
+
+extension UIPageControl {
+    
+    func updateColors(_ selectedColor:UIColor,_ normalColor:UIColor){
+        self.currentPageIndicatorTintColor = selectedColor
+        self.pageIndicatorTintColor = normalColor
+    }
+    
     func updateBorders(dotFillColor:UIColor, dotBorderColor:UIColor, dotBorderWidth:CGFloat) {
         for (pageIndex, dotView) in self.subviews.enumerated() {
             if self.currentPage == pageIndex {
@@ -99,10 +110,4 @@ public class CustomPageControl: UIPageControl {
             }
         }
     }
-    
-    func updateColors(_ selectedColor:UIColor,_ normalColor:UIColor){
-        self.currentPageIndicatorTintColor = selectedColor
-        self.pageIndicatorTintColor = normalColor
-    }
-    
 }

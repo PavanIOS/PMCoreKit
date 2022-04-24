@@ -5,14 +5,8 @@ import Foundation
 
 
 
-public class APIKeys {
-    static let GoogleMapKey = "AIzaSyCqlxJEVnSMDQodgVH1IYZnZZUv3JoOpls"
-}
 
-
-
-
-public class Defaults {
+public class UserDefaultsKeys {
     static let USER_NAME = "UserName"
     static let PASSWORD = "Password"
     static let ON_BOARDING = "Onboarding"
@@ -47,26 +41,24 @@ public class AppInfo {
 
 public class Config {
     static let companyUrl = "http://www.gpinfotech.com"
+    
+    static APIKeys {
+        static let cool = ""
+    }
 }
 
 
-public class ConstantType {
-    public static let kemptyPassword = "Please enter password"
-    public static let kEmptyUserName = "Please enter userName"
-    public static let kValidDetails = "Please enter Valid Credentails"
-    public static let kNetworkCheck = "Please Check your Network Connection"
-    public static let kNetworkTitle = "No Internet Connection"
-    public static let kServerAlert = "server is not responding"
-    public static let kNetworkAlert = "Make sure your device is connected to the internet."
-    public static let kSecurityEntity  = "SecurityEntity"
-    public static let kMainEntity = "MainEntity"
-    public static let kStatus = "Status"
-    public static let kComments = "Comments"
-    public static let kInvalidLogin = "Please enter valid credentials"
-    public static let kOldPasswordTitle = "Incorrect password"
-    public static let kIncorrectpassword = "This password is incorrect."
-    public static let kPasswordResetAlert = "Password reset successfully"
-    public static let kSamePassword = "Make sure new password should not same as old password"
-    public static let kIncorrectOldPassword = "Old password is incorrect."
+public class AlertMessages {
+    public static let empty_password = "Please enter password"
+    public static let empty_userName = "Please enter userName"
+    public static let valid_credentials = "Please enter Valid Credentails"
+    public static let internet_connection = "Please Check your Network Connection"
+    public static let no_internet = "No Internet Connection"
+    public static let server_error = "Server is not responding"
+    public static let check_internet = "Make sure your device is connected to the internet."
+    public static let incorrect_password = "Incorrect Password"
+    public static let password_reset_done = "Password reset successfully"
+    public static let password_not_match = "Make sure new password should not same as old password"
+    public static let incorrect_old_password = "Old password is incorrect."
     
 }

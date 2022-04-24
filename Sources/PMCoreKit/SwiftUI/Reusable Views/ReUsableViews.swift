@@ -162,7 +162,8 @@ public struct RatingView : View {
     var maximumRating = 5
     
     var offImage: Image?
-    var onImage = Image(systemName: "star.fill")
+    var onImage = Image.system(name: .star_fill)
+    
     
     var offColor = Color(.systemGray3)
     var onColor = Color.yellow

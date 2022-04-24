@@ -17,7 +17,6 @@ public class CustomCollectionView: UICollectionView {
     func initialSetup(){
         registerCells.append("EmptyCollectionViewCell")
         registerCells.append("PhotoCollectionViewCell")
-        registerCells.append("DashboardCollectionCell")
         registerCells.append("ImageGridCollectionViewCell")
         registerCells.append("HomeCollectionViewCell")
         

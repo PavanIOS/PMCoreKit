@@ -484,4 +484,12 @@ public extension MediaUtilities {
         return newFilePath
     }
     
+    
+    func createAndSaveToImagesFolder(oldFileName:String = "") -> URL {
+        let newFilePath = getAttachmentHandlerImageFilePath(oldFileName)
+        
+        _ = self.moveFileToLocation(oldPath: oldPath.path, newPath: newFilePath.path)
+        return newFilePath
+    }
+    
 }

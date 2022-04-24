@@ -22,7 +22,6 @@ public class CustomTableView: UITableView {
     
     func initialSetup(){
         
-        
         self.registerTableCells()
         self.registerHeaderViews()
         self.tableFooterView = UIView()
@@ -32,10 +31,10 @@ public class CustomTableView: UITableView {
     
     
     func registerTableCells(){
-        registerCells.append("CustomDetailTableViewCell")
-        registerCells.append("DetailTableViewCell")
-        registerCells.append("EmptyTableViewCell")
-        registerCells.append("RightDetailTableViewCell")
+        registerCells.append(CustomDetailTableViewCell.cellId)
+        registerCells.append(DetailTableViewCell.cellId)
+        registerCells.append(EmptyTableViewCell.cellId)
+        registerCells.append(RightDetailTableViewCell.cellId)
         registerCells.append(LogoTableViewCell.cellId)
         registerCells.append(InputStackTableViewCell.cellId)
         

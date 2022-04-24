@@ -306,7 +306,7 @@ public class TextImageButton: UIButton {
         set(imageEdgeInsets) { super.imageEdgeInsets = imageEdgeInsets }
     }
     
-    open override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         enableSpacingAdjustments += 1
         let contentSize = super.intrinsicContentSize
         enableSpacingAdjustments -= 1
@@ -314,7 +314,7 @@ public class TextImageButton: UIButton {
         return contentSize
     }
     
-    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
         enableSpacingAdjustments += 1
         let size = super.sizeThatFits(size)
         enableSpacingAdjustments -= 1
@@ -322,7 +322,7 @@ public class TextImageButton: UIButton {
         return size
     }
     
-    open override func contentRect(forBounds bounds: CGRect) -> CGRect {
+    public override func contentRect(forBounds bounds: CGRect) -> CGRect {
         enableSpacingAdjustments += 1
         let contentRect = super.contentRect(forBounds: bounds)
         enableSpacingAdjustments -= 1

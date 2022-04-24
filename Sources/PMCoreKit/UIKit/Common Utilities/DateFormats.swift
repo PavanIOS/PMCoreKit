@@ -36,19 +36,12 @@ public class DateFormatsList {
     
     static let WEEK_DAY_DISPLAY = "EEE,dd,MMM yyyy"
     static let WEEK_DAY_DISPLAY_TIME = WEEK_DAY_DISPLAY + " " + "hh:mm a"
-   
+    
     
 }
 
 
 public class DateFormats {
-    
-//    static let WEEK_DAY_DISPLAY = "EEE,dd,MMM yyyy"
-//    static let WEEK_DAY_DISPLAY_TIME = WEEK_DAY_DISPLAY + " " + "hh:mm a"
-//    static let SERVER_TIME = "HH:mm"
-//    static let PARSER_DATE_FORMAT_DD_MM_YYYY = "dd-MM-yyyy"
-//    static let PARSER_TIME_FORMAT_HH_MM = SERVER_TIME
-//    static let PARSER_DATE_TIME_FORMAT_DD_MM_YYYY = PARSER_DATE_FORMAT_DD_MM_YYYY + " " + "HH:mm"
     
     public static func getServerDate(date:Date,isTimeTrim:Bool)->String {
         
@@ -68,7 +61,7 @@ public class DateFormats {
         let date = Date()
         return getServerDate(date:date,isTimeTrim:isTimeTrim)
     }
-
+    
     
     public static func getTimeStamp(date:Date) -> String {
         let timeStamp = Int64(date.timeIntervalSince1970 * 1000)
@@ -83,30 +76,12 @@ public class DateFormats {
     public static func getCurrentMillis()->Int64 {
         return Int64(Date().timeIntervalSinceNow * 1000)
     }
- 
     
-// convert an NSDate object to a timestamp string
+    // convert an NSDate object to a timestamp string
     public static func convertToTimestamp(date: Date) -> String {
-    return String(Int64(date.timeIntervalSince1970 * 1000))
-}
-
-    public static func getTimeFromServer(completionHandler:@escaping (_ getResDate: Date) -> Void){
-        let url = URL(string: "https://www.apple.com")
-    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-        if let httpResponse = response as? HTTPURLResponse {
-            if let contentType = httpResponse.allHeaderFields["Date"] as? String {
-                //print(httpResponse)
-                let dFormatter = DateFormatter()
-                dFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z"
-                // let serverTime = dFormatter.date(from: contentType)
-                let serverTime = contentType.toDate("EEE, dd MMM yyyy HH:mm:ss z")
-                completionHandler(serverTime ?? Date())
-            }
-        }
-        
+        return String(Int64(date.timeIntervalSince1970 * 1000))
     }
-        task.resume()
-    }
+    
     
 }
 
@@ -117,18 +92,18 @@ public extension Date
     {
         
         let dateFormatter = DateFormatter()
-//        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        //        dateFormatter.timeZone = TimeZone(identifier: "UTC")
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        //        dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
     
     
     var calendar: Calendar {
-           // Workaround to segfault on corelibs foundation https://bugs.swift.org/browse/SR-10147
-           return Calendar(identifier: Calendar.current.identifier)
-       }
+        // Workaround to segfault on corelibs foundation https://bugs.swift.org/browse/SR-10147
+        return Calendar(identifier: Calendar.current.identifier)
+    }
     
     func addDays(_ days:Int) -> Date {
         if let newDate = Calendar.current.date(byAdding: .day, value: days, to: self) {
@@ -138,11 +113,11 @@ public extension Date
     }
     
     func addHours(_ hours:Int) -> Date {
-           if let newDate = Calendar.current.date(byAdding: .hour, value: hours, to: self) {
-               return newDate
-           }
-           return self
-       }
+        if let newDate = Calendar.current.date(byAdding: .hour, value: hours, to: self) {
+            return newDate
+        }
+        return self
+    }
     func addMinutes(_ minuts:Int) -> Date {
         if let newDate = Calendar.current.date(byAdding: .minute, value: minuts, to: self) {
             return newDate
@@ -198,7 +173,7 @@ public extension Date
         }
         var arrThisWeek: [Date] = []
         for i in 1...7 {
-             let currentDate = Calendar.current.date(byAdding: .day, value: i, to: arrPreWeek.last!)!
+            let currentDate = Calendar.current.date(byAdding: .day, value: i, to: arrPreWeek.last!)!
             arrThisWeek.append(currentDate)
             
         }
@@ -212,7 +187,7 @@ public extension Date
     var noon: Date {
         return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
     }
-
+    
     func years(from date: Date) -> Int {
         return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0
     }
@@ -268,9 +243,9 @@ public extension Date
     }
     
     /// SwifterSwift: Check if date is within today.
-       ///
-       ///     Date().isInToday -> true
-       ///
+    ///
+    ///     Date().isInToday -> true
+    ///
     var isInToday: Bool {
         return calendar.isDateInToday(self)
     }
@@ -282,7 +257,7 @@ public extension Date
     var isInYesterday: Bool {
         return calendar.isDateInYesterday(self)
     }
-
+    
     /// SwifterSwift: Check if date is within tomorrow.
     ///
     ///     Date().isInTomorrow -> false
@@ -290,27 +265,27 @@ public extension Date
     var isInTomorrow: Bool {
         return calendar.isDateInTomorrow(self)
     }
-
+    
     /// SwifterSwift: Check if date is within a weekend period.
     var isInWeekend: Bool {
         return calendar.isDateInWeekend(self)
     }
-
+    
     /// SwifterSwift: Check if date is within a weekday period.
     var isWorkday: Bool {
         return !calendar.isDateInWeekend(self)
     }
-
+    
     /// SwifterSwift: Check if date is within the current week.
     var isInCurrentWeek: Bool {
         return calendar.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
     }
-
+    
     /// SwifterSwift: Check if date is within the current month.
     var isInCurrentMonth: Bool {
         return calendar.isDate(self, equalTo: Date(), toGranularity: .month)
     }
-
+    
     /// SwifterSwift: Check if date is within the current year.
     var isInCurrentYear: Bool {
         return calendar.isDate(self, equalTo: Date(), toGranularity: .year)
@@ -341,13 +316,13 @@ public extension Date
 public extension String {
     
     func toDate(_ format:String = "yyyy/MM/dd HH:mm:ss")-> Date?{
-          let dateFormatter = DateFormatter()
-          //  dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        let dateFormatter = DateFormatter()
+        //  dateFormatter.timeZone = TimeZone(identifier: "UTC")
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-          dateFormatter.dateFormat = format
-          let date = dateFormatter.date(from: self)
-          return date
-      }
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+        return date
+    }
     
     func fromParserDateToDisplayDate() -> String {
         if let date = self.toDate(DateFormatsList.Parser_Date) {
@@ -358,6 +333,6 @@ public extension String {
     }
     
     func fromParserDateToDate() -> Date? {
-       return self.toDate(DateFormatsList.Parser_Date)
+        return self.toDate(DateFormatsList.Parser_Date)
     }
 }

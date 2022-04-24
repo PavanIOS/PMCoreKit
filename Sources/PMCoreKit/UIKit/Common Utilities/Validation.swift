@@ -13,7 +13,7 @@ public class Validation {
     static func isReachable(_ showAlert:Bool = true) -> Bool{
         guard NetworkManager.shared.isReachable() else {
             if showAlert {
-                CommonAlertView.shared.showAlert("Please check internet connection")
+                CommonAlertView.shared.showAlert(AlertMessages.check_internet)
             }
             return false
         }

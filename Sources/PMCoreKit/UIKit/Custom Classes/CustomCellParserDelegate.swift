@@ -31,7 +31,7 @@ protocol CustomCellParserDelegate : AnyObject {
     
 }
 
- extension CustomCellParserDelegate {
+public extension CustomCellParserDelegate {
     func didChangeValue(_ parser:DelegateParser) {
         
     }

@@ -23,6 +23,7 @@ enum EnvironmentType {
 let currentEnvironment : EnvironmentType = .DEV
 public class NetworkUrls {
     
+    
   
     
     private static var SERVER_PRO_BASE_URL : String {
