@@ -141,22 +141,35 @@ public enum SystemImages : String {
     case photo_fill = "photo.fill"
     case touchid = "touchid"
     case app_badge = "app.badge"
-    
-
+    case checkmark_square = "checkmark.square"
+    case checkmark_square_fill = "checkmark.square.fill"
+    case square = "square"
     
 }
 
-
-public extension Image {
+extension SystemImages {
     
-     static func system(name:SystemImages) -> Image {
-        return Image(systemName: name.rawValue)
+    func toUIImage() -> UIImage {
+        return UIImage(systemName: self.rawValue) ?? UIImage()
+    }
+    
+    func toImage() -> Image {
+        return Image(systemName: self.rawValue)
     }
 }
 
-public extension UIImage {
-     static func system(name:SystemImages) -> UIImage {
-        return UIImage(systemName: name.rawValue) ?? UIImage()
-    }
-}
+
+//public extension Image {
+//    
+//    init(system:SystemImages) -> Image {
+//        return Image(systemName: name.rawValue)
+//    }
+//}
+//
+//public extension UIImage {
+//    
+//    init(system:SystemImages) -> UIImage {
+//        return UIImage(systemName: name.rawValue) ?? UIImage()
+//    }
+//}
 

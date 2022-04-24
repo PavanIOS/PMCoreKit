@@ -31,22 +31,14 @@ public class ImageNames {
     static let emptyImage = UIImage()
     let empty = UIImage()
    
-    static let backArrow = "backArrow".image()
-    static let hidePassword = "hidePassword".image()
-    static let showPassword = "showPassword".image()
     static let back = "back".image()
-    static let checkbox = "checkbox".image()
-    static let uncheck = "uncheck".image()
     static let downArrow = "downArrow".image()
-    static let expand = "expand".image()
-    static let forward = "forward".image()
     static let mandatory = "mandatory".image()
-    static let notifications = "notifications".image()
-    static let settings = "settings".image()
     static let forgotPassword = "forgotPassword".image()
     static let radiobutton = "radiobutton".image()
     static let radiobuttonOff = "radiobuttonOff".image()
     static let logout = "logout".image()
+    static let logout = "Up Arrow".image()
     
 }
 

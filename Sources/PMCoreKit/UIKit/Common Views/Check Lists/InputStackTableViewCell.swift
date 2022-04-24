@@ -232,9 +232,9 @@ public class InputStackTableViewCell: CustomTableViewCell {
         checkboxButton.contentMode = .scaleAspectFit
         
         if model.data.boolValue {
-            checkboxButton.buttonImage = ImageNames.checkbox
+            checkboxButton.buttonImage = SystemImages.checkmark_square.toUIImage()
         }else{
-            checkboxButton.buttonImage = ImageNames.uncheck
+            checkboxButton.buttonImage = SystemImages.square.toUIImage()
         }
         
         checkboxButton.addTarget(self, action: #selector(checkBoxClicked(_:)), for: .touchUpInside)
@@ -244,7 +244,7 @@ public class InputStackTableViewCell: CustomTableViewCell {
     
     @objc func checkBoxClicked(_ sender:CustomButton) {
         var data = "off"
-        if sender.currentImage == ImageNames.uncheck {
+        if sender.currentImage == SystemImages.square.toUIImage() {
             data = "on"
         }
         let parser = dataDidChange(data, "", sender.section, sender.row,sender.item, true)
