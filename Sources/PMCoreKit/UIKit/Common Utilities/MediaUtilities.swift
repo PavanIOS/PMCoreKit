@@ -485,10 +485,10 @@ public extension MediaUtilities {
     }
     
     
-    func createAndSaveToImagesFolder(oldFileName:String = "") -> URL {
+    func createAndSaveToImagesFolder(oldFileName:String = "",image:UIImage) -> URL {
         let newFilePath = getAttachmentHandlerImageFilePath(oldFileName)
         
-        _ = self.moveFileToLocation(oldPath: oldPath.path, newPath: newFilePath.path)
+        _ = self.saveImageToDirectory(image, newFilePath)
         return newFilePath
     }
     

@@ -129,8 +129,8 @@ public class ToastManager {
     
     public static func showNegativeToast(_ message:String,_ position:ToastPosition = .bottom) {
         var style = ToastStyle()
-        style.textColor = Colors.red
-        style.backgroundColor = Colors.white
+        style.textColor = UIColor.red
+        style.backgroundColor = UIColor.white
         toast.makeToast(forToast: message, duration: Duration.LENGHT_MEDIUM.rawValue, position: position, style: style)
     }
 }

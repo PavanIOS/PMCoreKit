@@ -58,8 +58,8 @@ public class TextInputModel {
     var token = Device.getToken
     var subToken = ""
     var placeHolder = ""
-    var textColor = Colors.black
-    var bgColor = Colors.white
+    var textColor = UIColor.black
+    var bgColor = UIColor.white
     var headerTitle = ""
     var enable = true
     var selectedId = ""

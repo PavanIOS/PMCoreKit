@@ -71,7 +71,7 @@ public class CustomTextField: UITextField {
             self.setupPlaceHolderFont(fontSize: placeHolderFont)
         }
     }
-    var placeHolderColor : UIColor = Colors.lightGray {
+    var placeHolderColor : UIColor = UIColor.lightGray {
         didSet {
             self.setupPlaceHolderColor(color: placeHolderColor)
         }
@@ -218,13 +218,13 @@ public class CustomTextField: UITextField {
     
     func removeRightView(){
         self.rightView = nil
-        self.tintColor = Colors.navBarColor
+        self.tintColor = UIColor.navBarColor
     }
     
     func removeDropDown(){
         self.removeRightView()
         self.inputView = nil
-        self.tintColor = Colors.def_blue
+        self.tintColor = UIColor.def_blue
     }
     
     func addDoneButtonOnKeyboard(){
@@ -244,7 +244,7 @@ public class CustomTextField: UITextField {
     
     
     func setupDatePicker(_ format:DateType,_ showDefault:Bool = true){
-        self.tintColor = Colors.clear
+        self.tintColor = UIColor.clear
         dateFormatType = format
         switch dateFormatType {
         case .date:
@@ -487,7 +487,7 @@ public extension CustomTextField {
     }
     
     // add image to textfield
-    func withImage(_ direction:Direction,_ image:UIImage,_ colorSeparator:UIColor,_ enable:Bool=false,_ text:String = ""){
+    func withImage(_ direction:Direction,_ image:UIImage,_ UIColoreparator:UIColor,_ enable:Bool=false,_ text:String = ""){
         
         var mainViewWidth : CGFloat = 40 // Default text field height
         var mainViewHeight : CGFloat = self.frame.height
@@ -524,12 +524,12 @@ public extension CustomTextField {
         }else{
             button.frame = CGRect(x: 5.0, y: iconHeight, width: mainViewWidth, height: 24.0)
         }
-        button.tintColor = colorSeparator
+        button.tintColor = UIColoreparator
         button.addTarget(self, action: #selector(self.rightButtonClicked), for: .touchUpInside)
         view.addSubview(button)
         
         let seperatorView = UIView()
-        seperatorView.backgroundColor = colorSeparator
+        seperatorView.backgroundColor = UIColoreparator
         mainView.addSubview(seperatorView)
         
         if(Direction.Left == direction){ // image left
@@ -551,16 +551,25 @@ public extension CustomTextField {
         self.initSetup()
         self.placeholder = placeHolder
         self.cornerRadius = 5
-        self.setBorder(1.0, Colors.separator)
+        self.setBorder(1.0, UIColor.separator)
         self.font = CustomFonts.getRegularFont(.NORMAL)
     }
     
     func setDropdownArrow(){
-        self.withImage(.Right, ImageNames.expand, Colors.separator)
+        self.withImage(.Right, ImageNames.expand, UIColor.separator)
     }
     
     func setRightSideImage(_ image:UIImage){
-        self.withImage(.Right, image, Colors.gray)
+        self.withImage(.Right, image, UIColor.gray)
+    }
+    
+    
+    func getServerDate() -> String {
+        return self.selectedDate.toString(DateFormatsList.Server_Date)
+    }
+    
+    func getDisplayDate() -> String {
+        return self.selectedDate.toString(DateFormatsList.Display_Date)
     }
 }
 
@@ -578,11 +587,4 @@ public extension UITextField {
         self.attributedPlaceholder =  NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color])
     }
     
-    func getServerDate() -> String {
-        return self.selectedDate.toString(DateFormatsList.Server_Date)
-    }
-    
-    func getDisplayDate() -> String {
-        return self.selectedDate.toString(DateFormatsList.Display_Date)
-    }
 }

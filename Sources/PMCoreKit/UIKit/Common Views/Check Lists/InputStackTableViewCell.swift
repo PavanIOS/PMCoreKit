@@ -68,14 +68,14 @@ public class InputStackTableViewCell: CustomTableViewCell {
         if model.level > 0 {
             let level = CGFloat(model.level) * 5
             self.stackLeadingConstant.constant = level
-            self.bgStackView.addBorder(on: [.left(thickness: 5, color: Colors.themeYellow)])
+            self.bgStackView.addBorder(on: [.left(thickness: 5, color: UIColor.yellow)])
         }else{
             self.bgStackView.removeBorders()
             self.stackLeadingConstant.constant = 0
         }
         
         if model.isMandatory {
-            self.titleLbl.attributedText = NSMutableAttributedString().text(model.title + " ", Colors.black, CustomFonts.getRegularFont(.NORMAL)).icon(image: ImageNames.mandatory, width: 10, height: 10)
+            self.titleLbl.attributedText = NSMutableAttributedString().text(model.title + " ", UIColor.black, CustomFonts.getRegularFont(.NORMAL)).icon(image: ImageNames.mandatory, width: 10, height: 10)
         }else{
             self.titleLbl.text = model.title
         }
@@ -131,7 +131,7 @@ public class InputStackTableViewCell: CustomTableViewCell {
         textField.font = CustomFonts.getRegularFont(.MEDIUM)
         textField.borderStyle = .roundedRect
         textField.initSetup()
-        textField.setBorder(1.0, Colors.lightGray.withAlphaComponent(0.5))
+        textField.setBorder(1.0, UIColor.lightGray.withAlphaComponent(0.5))
         textField.cornerRadius = 8
         
         textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -145,7 +145,7 @@ public class InputStackTableViewCell: CustomTableViewCell {
         if model.enable {
             textField.backgroundColor = .white
         }else{
-            textField.backgroundColor = Colors.disableColor
+            textField.backgroundColor = UIColor.disableColor
         }
         
         if model.fieldType == .SINGLE_LINE_TF || model.fieldType == .NUMBER_TF {
@@ -202,7 +202,7 @@ public class InputStackTableViewCell: CustomTableViewCell {
         textView.autocorrectionType = .no
         textView.font = CustomFonts.getRegularFont(.MEDIUM)
         textView.initSetup()
-        textView.setBorder(1.0, Colors.lightGray.withAlphaComponent(0.5))
+        textView.setBorder(1.0, UIColor.lightGray.withAlphaComponent(0.5))
         textView.cornerRadius = 8
         textView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         textView.text = model.data
@@ -211,7 +211,7 @@ public class InputStackTableViewCell: CustomTableViewCell {
         if model.enable {
             textView.backgroundColor = .white
         }else{
-            textView.backgroundColor = Colors.disableColor
+            textView.backgroundColor = UIColor.disableColor
         }
         textView.maxLength = model.maxLength
         textView.textInputDelegate = self
@@ -275,7 +275,7 @@ public class InputStackTableViewCell: CustomTableViewCell {
 //                button.item = index
 //                button.id = item.ResponseID.stringValue
 //                button.buttonTitle = item.Text
-//                button.titleColor = Colors.white
+//                button.titleColor = UIColor.white
 //                button.cornerRadius = 8
 //                if item.ResponseID.stringValue == model.selectedId {
 //                    button.backgroundColor = item.getColor()
@@ -309,7 +309,7 @@ public class InputStackTableViewCell: CustomTableViewCell {
         button.row = indexPath.row
         
         button.buttonTitle = "Add Media"
-        button.backgroundColor = Colors.themeColor
+        button.backgroundColor = UIColor.themeColor
         
         let mediaStackView = CustomStackView()
         mediaStackView.axis = .horizontal

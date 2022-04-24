@@ -69,9 +69,9 @@ public extension UIImage {
                 let height = size.height
                 let bounds = CGRect(x: 0, y: 0, width: width, height: height)
                 
-                let colorSpace = CGColorSpaceCreateDeviceRGB()
+                let UIColorpace = CGUIColorpaceCreateDeviceRGB()
                 let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-                let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)!
+                let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: UIColorpace, bitmapInfo: bitmapInfo.rawValue)!
                 
                 context.clip(to: bounds, mask: maskImage)
                 context.setFillColor(color.cgColor)

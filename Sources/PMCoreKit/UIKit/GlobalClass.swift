@@ -41,8 +41,8 @@ public func heightForLabel(_ text:String,_ font:UIFont,_ width:CGFloat) -> CGFlo
 
 
 func isfirstTimeLaunch() -> Bool {
-    if !UserDefaults.standard.bool(forKey: Defaults.APP_LAUNCHED) {
-        UserDefaults.standard.set(true, forKey: Defaults.APP_LAUNCHED)
+    if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.APP_LAUNCHED) {
+        UserDefaults.standard.set(true, forKey: UserDefaultsKeys.APP_LAUNCHED)
         UserDefaults.standard.synchronize()
         return true
     }
@@ -52,7 +52,7 @@ func isfirstTimeLaunch() -> Bool {
 
 func isLoggedInAlready() -> Bool {
     
-    if let loginId = UserDefaults.standard.string(forKey: Defaults.LOGIN_ID), let userName = UserDefaults.standard.string(forKey: Defaults.USER_NAME), let password = UserDefaults.standard.string(forKey: Defaults.PASSWORD) {
+    if let loginId = UserDefaults.standard.string(forKey: UserDefaultsKeys.LOGIN_ID), let userName = UserDefaults.standard.string(forKey: UserDefaultsKeys.USER_NAME), let password = UserDefaults.standard.string(forKey: UserDefaultsKeys.PASSWORD) {
         
         if !loginId.isEmpty && !userName.isEmpty && !password.isEmpty {
             return true
@@ -64,9 +64,9 @@ func isLoggedInAlready() -> Bool {
 
 
 func clearLoggedInData(){
-    UserDefaults.standard.removeObject(forKey: Defaults.LOGIN_ID)
-    UserDefaults.standard.removeObject(forKey: Defaults.USER_NAME)
-    UserDefaults.standard.removeObject(forKey: Defaults.PASSWORD)
+    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.LOGIN_ID)
+    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.USER_NAME)
+    UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.PASSWORD)
 }
 
 

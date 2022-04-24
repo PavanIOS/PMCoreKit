@@ -49,7 +49,7 @@ public class CustomButton: TextImageButton {
         }
     }
     
-    var titleColor: UIColor = Colors.lightGray {
+    var titleColor: UIColor = UIColor.lightGray {
         didSet {
             self.setTitleColor(titleColor, for: .normal)
         }
@@ -159,16 +159,16 @@ public class CustomButton: TextImageButton {
     
     var gradient: CAGradientLayer?
     
-    func setupButtonGradient(_ colors:[UIColor],_ horizontal:Bool){
+    func setupButtonGradient(_ UIColor:[UIColor],_ horizontal:Bool){
         gradient?.removeFromSuperlayer()
         gradient = CAGradientLayer()
         guard let gradient = gradient else { return }
-        var cgColors = [CGColor]()
-        for color in colors {
-            cgColors.append(color.cgColor)
+        var cgUIColor = [CGColor]()
+        for color in UIColor {
+            cgUIColor.append(color.cgColor)
         }
         gradient.frame = self.layer.bounds
-        gradient.colors = cgColors
+        gradient.UIColor = cgUIColor
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = horizontal ? CGPoint(x: 1, y: 0) : CGPoint(x: 0, y: 1)
         gradient.cornerRadius = self.cornerRadius

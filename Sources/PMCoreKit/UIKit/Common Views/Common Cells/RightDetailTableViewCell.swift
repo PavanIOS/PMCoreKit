@@ -9,6 +9,8 @@ import UIKit
 
 public class RightDetailTableViewCell: UITableViewCell {
 
+    static let cellId = "RightDetailTableViewCell"
+    
     public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

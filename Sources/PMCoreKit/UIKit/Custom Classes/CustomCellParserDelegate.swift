@@ -31,12 +31,12 @@ protocol CustomCellParserDelegate : AnyObject {
     
 }
 
-public extension CustomCellParserDelegate {
-    func didChangeValue(_ parser:DelegateParser) {
+ extension CustomCellParserDelegate {
+     public func didChangeValue(_ parser:DelegateParser) {
         
     }
     
-    func autoComplete(_ parser:DelegateParser) {
+     public func autoComplete(_ parser:DelegateParser) {
         
     }
 }

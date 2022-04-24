@@ -92,7 +92,7 @@ public class CustomPageControl: UIPageControl {
 
 extension UIPageControl {
     
-    func updateColors(_ selectedColor:UIColor,_ normalColor:UIColor){
+    func updateUIColor(_ selectedColor:UIColor,_ normalColor:UIColor){
         self.currentPageIndicatorTintColor = selectedColor
         self.pageIndicatorTintColor = normalColor
     }

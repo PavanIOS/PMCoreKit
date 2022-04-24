@@ -81,7 +81,7 @@ public class CustomTextView: UITextView {
         placeholderLabel.sizeToFit()
         placeholderLabel.frame = CGRect(x: leftPadding, y: (self.font?.pointSize ?? 15) / 2 - 5, width: self.frame.width, height: 30)
         self.addSubview(placeholderLabel)
-        placeholderLabel.textColor = Colors.lightGray
+        placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !self.text.isEmpty
         self.delegate = self
         
@@ -166,7 +166,7 @@ public extension CustomTextView {
         self.font = CustomFonts.getRegularFont(.NORMAL)
         self.initSetup()
         self.cornerRadius = 5
-        self.setBorder(1.0, Colors.separator)
+        self.setBorder(1.0, UIColor.separator)
         self.placeHolder = placeHolder
     }
     

@@ -36,7 +36,7 @@ public class LogoTableViewCell: UITableViewCell {
     
     func initCell(){
         self.selectionStyle = .none
-        companyLogoButton.titleColor = Colors.themeColor
+        companyLogoButton.titleColor = UIColor.themeColor
         companyLogoButton.titleLabel?.textAlignment = .center
         updateData()
     }

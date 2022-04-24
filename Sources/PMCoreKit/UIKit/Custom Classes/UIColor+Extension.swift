@@ -1,5 +1,5 @@
 //
-//  Colors.swift
+//  UIColor.swift
 //  bms_iOS
 //
 //  Created by Sekhar on 08/12/18.
@@ -11,7 +11,7 @@ import UIKit
 
 extension UIColor {
     
-    override public class var groupTableViewBackground: UIColor {
+    public static var groupTableViewBackground: UIColor {
         if #available(iOS 13, *) {
             return .systemGroupedBackground
         } else {
@@ -19,7 +19,7 @@ extension UIColor {
         }
     }
     
-    public override class var systemBackground: UIColor {
+    public static var systemBackground: UIColor {
         if #available(iOS 13, *) {
             return .systemBackground
         } else {
@@ -27,7 +27,7 @@ extension UIColor {
         }
     }
     
-    public override class var separator: UIColor {
+    public static var separator: UIColor {
         if #available(iOS 13, *) {
             return .separator
         } else {
@@ -36,7 +36,7 @@ extension UIColor {
     }
     
     
-    public override class var systemRed: UIColor {
+    public static var systemRed: UIColor {
         if #available(iOS 13, *) {
             return .systemRed
         } else {
@@ -44,7 +44,7 @@ extension UIColor {
         }
     }
     
-    public override class var gray: UIColor {
+    public static var gray: UIColor {
         if #available(iOS 13.0, *) {
             return .systemGray
         }else{
@@ -52,7 +52,7 @@ extension UIColor {
         }
     }
     
-    public override class var white: UIColor {
+    public static var white: UIColor {
         if #available(iOS 13.0, *) {
             return .systemBackground
         }else{
@@ -60,7 +60,7 @@ extension UIColor {
         }
     }
     
-    public override class var link: UIColor {
+    public static var link: UIColor {
         if #available(iOS 13, *) {
             return .link
         } else {
@@ -79,6 +79,9 @@ extension UIColor {
     public static let startGradient = "CEDFFF".toUIcolor()
     public static let endGradient = "E6EEFF".toUIcolor()
     public static let profileBg = "eff0f0".toUIcolor()
+    
+    
+    public static let themeColor = "f7f7f7".toUIcolor()
     
 }
 

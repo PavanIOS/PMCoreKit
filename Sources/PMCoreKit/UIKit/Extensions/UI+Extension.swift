@@ -126,7 +126,7 @@ public extension UIView {
     func fadeView(style: UIViewFadeStyle = .bottom, percentage: Double = 0.07) {
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.colors = [UIColor.white.cgColor, UIColor.clear.cgColor]
+        gradient.UIColor = [UIColor.white.cgColor, UIColor.clear.cgColor]
         
         let startLocation = percentage
         let endLocation = 1 - percentage
@@ -141,7 +141,7 @@ public extension UIView {
         case .vertical:
             gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
             gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
-            gradient.colors = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
+            gradient.UIColor = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
             gradient.locations = [0.0, startLocation, endLocation, 1.0] as [NSNumber]
             
         case .left:
@@ -153,7 +153,7 @@ public extension UIView {
         case .horizontal:
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-            gradient.colors = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
+            gradient.UIColor = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
             gradient.locations = [0.0, startLocation, endLocation, 1.0] as [NSNumber]
         }
         
@@ -180,35 +180,35 @@ public extension UIView {
         let gradient = CAGradientLayer()
         
         gradient.frame = self.bounds
-        gradient.colors = [startColor.cgColor, endColor.cgColor]
+        gradient.UIColor = [startColor.cgColor, endColor.cgColor]
         self.layer.insertSublayer(gradient, at: 0)
     }
     
     
-    func gradient(_ colors:[UIColor],_ radius:CGFloat=0,_ horizontal:Bool=false){
+    func gradient(_ UIColor:[UIColor],_ radius:CGFloat=0,_ horizontal:Bool=false){
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.frame = self.layer.bounds
-        var cgColors = [CGColor]()
-        for color in colors {
-            cgColors.append(color.cgColor)
+        var cgUIColor = [CGColor]()
+        for color in UIColor {
+            cgUIColor.append(color.cgColor)
         }
-        gradientLayer.colors = cgColors
+        gradientLayer.UIColor = cgUIColor
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = horizontal ? CGPoint(x: 1, y: 0) : CGPoint(x: 0, y: 1)
         gradientLayer.cornerRadius = self.layer.cornerRadius
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-//    func setupButtonGradient(_ colors:[UIColor],_ horizontal:Bool){
+//    func setupButtonGradient(_ UIColor:[UIColor],_ horizontal:Bool){
 //        gradient?.removeFromSuperlayer()
 //        gradient = CAGradientLayer()
 //        guard let gradient = gradient else { return }
-//        var cgColors = [CGColor]()
-//        for color in colors {
-//            cgColors.append(color.cgColor)
+//        var cgUIColor = [CGColor]()
+//        for color in UIColor {
+//            cgUIColor.append(color.cgColor)
 //        }
 //        gradient.frame = self.layer.bounds
-//        gradient.colors = cgColors
+//        gradient.UIColor = cgUIColor
 //        gradient.startPoint = CGPoint(x: 0, y: 0)
 //        gradient.endPoint = horizontal ? CGPoint(x: 1, y: 0) : CGPoint(x: 0, y: 1)
 //        gradient.cornerRadius = self.cornerRadius
@@ -546,7 +546,7 @@ public extension UIViewController {
     }
     
     func showNavBarSeperator() {
-        let img = UIImage.pixelImageWithColor(color: Colors.lightGray.withAlphaComponent(0.8))//Use Any Color
+        let img = UIImage.pixelImageWithColor(color: UIColor.lightGray.withAlphaComponent(0.8))//Use Any Color
         self.navigationController?.navigationBar.shadowImage = img
     }
     
@@ -555,7 +555,7 @@ public extension UIViewController {
         if !isChildViewExisted() {
             
             controller.view.frame = frame ?? toView.bounds
-            controller.view.backgroundColor = Colors.black.withAlphaComponent(0.6)
+            controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
             controller.view.accessibilityIdentifier = "Child"
             controller.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             UIView.animate(withDuration: 0.33, animations: {
@@ -571,7 +571,7 @@ public extension UIViewController {
         let window = UIApplication.shared.keyWindow! as UIWindow
         
         controller.view.frame = window.bounds
-        controller.view.backgroundColor = Colors.black.withAlphaComponent(0.6)
+        controller.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         controller.view.accessibilityIdentifier = "Child"
         controller.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         UIView.animate(withDuration: 0.33, animations: {

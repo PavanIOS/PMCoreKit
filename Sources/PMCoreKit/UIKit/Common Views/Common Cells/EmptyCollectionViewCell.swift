@@ -50,10 +50,10 @@ public class EmptyCollectionViewCell: UICollectionViewCell {
     func setSelected(selected:Bool){
         
         if selected {
-            self.backgroundColor = Colors.themeColor
+            self.backgroundColor = UIColor.themeColor
             self.textLabel.textColor = .white
         }else{
-            self.backgroundColor = Colors.unSelected_gray
+            self.backgroundColor = UIColor.unSelected_gray
             self.textLabel.textColor = .black
         }
     }
@@ -69,7 +69,7 @@ public class EmptyCollectionViewCell: UICollectionViewCell {
     
     
     func updateUI(_ bgColor:UIColor,_ font:UIFont){
-        var inverseColor = Colors.white
+        var inverseColor = UIColor.white
         if bgColor.isLight {
             inverseColor = .black
         }

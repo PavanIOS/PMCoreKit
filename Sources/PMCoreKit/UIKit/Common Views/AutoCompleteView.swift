@@ -91,8 +91,8 @@ public class AutoCompleteView: UIViewController {
         //        }
         
         confirmButtom.buttonTitle = "Confirm"
-        confirmButtom.backgroundColor = Colors.themeColor
-        confirmButtom.titleColor = Colors.white
+        confirmButtom.backgroundColor = UIColor.themeColor
+        confirmButtom.titleColor = UIColor.white
         confirmButtom.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         confirmButtom.animateEnabled = false
         

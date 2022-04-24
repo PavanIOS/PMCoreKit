@@ -51,7 +51,7 @@ public extension UIView {
         let gradient = CAGradientLayer()
         
         gradient.frame = self.bounds
-        gradient.colors = [startColor.cgColor, endColor.cgColor]
+        gradient.UIColor = [startColor.cgColor, endColor.cgColor]
         gradient.accessibilityHint = layerAccessibilityHint
         gradient.cornerRadius = self.layer.cornerRadius
         self.layer.insertSublayer(gradient, at: 0)

@@ -37,7 +37,7 @@ public class PreviewViewController: QLPreviewController {
     public override func viewDidAppear(_ animated: Bool) {
              super.viewDidAppear(animated)
            if !isModal() {
-                 let textAttributes = [NSAttributedString.Key.foregroundColor:Colors.black]
+                 let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
                  self.navigationController?.navigationBar.titleTextAttributes = textAttributes
             self.navigationController?.navigationBar.tintColor = .black
           }

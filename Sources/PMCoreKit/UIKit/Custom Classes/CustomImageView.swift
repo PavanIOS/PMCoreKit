@@ -9,7 +9,7 @@ import SDWebImage
 
 public class CustomImageView: UIImageView {
     
-    var updateColor : UIColor = Colors.white {
+    var updateColor : UIColor = UIColor.white {
         didSet {
             self.changeColor(color: updateColor)
         }
@@ -35,7 +35,7 @@ public extension UIImageView {
         self.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.sd_setImage(with: filePath.toUrl, completed: nil)
         #else
-        self.load(filePath, placeHolder)
+//        self.load(filePath, placeHolder)
         #endif
     }
     

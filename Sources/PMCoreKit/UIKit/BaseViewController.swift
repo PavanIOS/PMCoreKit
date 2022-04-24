@@ -197,17 +197,17 @@ public extension BaseViewController {
         }
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = Colors.groupTableViewBackground
-            appearance.titleTextAttributes = [.foregroundColor: Colors.white]
-            appearance.largeTitleTextAttributes = [.foregroundColor: Colors.white]
+            appearance.backgroundColor = UIColor.groupTableViewBackground
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             
-            self.navigationController?.navigationBar.tintColor = Colors.white
+            self.navigationController?.navigationBar.tintColor = UIColor.white
             self.navigationController?.navigationBar.standardAppearance = appearance
             self.navigationController?.navigationBar.compactAppearance = appearance
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         } else {
-            self.navigationController?.navigationBar.tintColor = Colors.black
-            self.navigationController?.navigationBar.barTintColor = Colors.groupTableViewBackground
+            self.navigationController?.navigationBar.tintColor = UIColor.black
+            self.navigationController?.navigationBar.barTintColor = UIColor.groupTableViewBackground
             self.navigationController?.navigationBar.isTranslucent = false
         }
     }
