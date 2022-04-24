@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import IQKeyboardManagerSwift
+//import IQKeyboardManagerSwift
 
 
 public class Initialization {
     
     func initPackages() {
-        IQKeyboardManager.shared.enable = true
+        // IQKeyboardManager.shared.enable = true
     }
 }
